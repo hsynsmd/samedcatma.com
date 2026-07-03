@@ -1,0 +1,56 @@
+.pt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0b0a16 0%, #150d2a 55%, #07070b 100%);
+}
+
+/* Perde tabanda bekler */
+.pt-overlay--idle {
+  transform: translateY(100%);
+  transition: none;
+}
+
+/* Perde yukarı çıkıp ekranı kaplar */
+.pt-overlay--cover {
+  transform: translateY(0);
+  transition: transform 0.54s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Perde yukarı sıyrılıp yeni bölümü açar */
+.pt-overlay--reveal {
+  transform: translateY(-100%);
+  transition: transform 0.68s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Ortadaki logo */
+.pt-brand {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  opacity: 0;
+  transform: scale(0.92);
+}
+.pt-brand span {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pt-overlay--cover .pt-brand {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease 0.12s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+.pt-overlay--reveal .pt-brand {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pt-overlay { display: none; }
+}

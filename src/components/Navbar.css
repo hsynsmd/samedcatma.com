@@ -1,0 +1,180 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  /* Üstte (hero) tamamen şeffaf — linkler hero'da yüzsün, bant/dikiş olmasın.
+     Frosted cam yalnızca kaydırınca gelir (.nav--scrolled). */
+  background: transparent;
+  /* Taşan gooey siyahını çubuk yüksekliğine kırp */
+  overflow: hidden;
+  transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+  border-bottom: 1px solid transparent;
+  animation: navDrop 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes navDrop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Kaydırınca frosted cam gelir — okunabilirlik + yumuşak gölge (düz çizgi yerine) */
+.nav--scrolled {
+  background: rgba(10, 12, 18, 0.72);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.nav__inner {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+}
+/* İkonik monogram rozeti — gradyan kenar + koyu dolgu + küçük node vurgusu */
+.nav__badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 13px 8px;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
+  color: #fff;
+  background:
+    linear-gradient(rgba(16, 20, 30, 0.92), rgba(16, 20, 30, 0.92)) padding-box,
+    linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 16px rgba(91, 108, 255, 0.22);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+}
+.nav__logo:hover .nav__badge {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(91, 108, 255, 0.4);
+}
+.nav__badge-node {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 7px var(--accent-2);
+  animation: heroPulse 1.8s ease-in-out infinite;
+}
+@keyframes heroPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.7); }
+}
+
+/* Masaüstü: GooeyNav */
+.nav__desktop { display: block; }
+
+/* Hamburger (mobil) */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 9px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav__burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+.nav__burger--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__burger--open span:nth-child(2) { opacity: 0; }
+.nav__burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobil menü paneli */
+.nav-mobile {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 79;
+  padding: 0 5%;
+  transform: translateY(-12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.nav-mobile--open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav-mobile__panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+.nav-mobile__panel a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: var(--text-soft);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-mobile__panel a:last-child { border-bottom: none; }
+.nav-mobile__panel a:hover { background: rgba(255, 255, 255, 0.03); color: var(--text); }
+.nav-mobile__panel a.is-active { color: var(--accent); }
+.nav-mobile__idx {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-2);
+  opacity: 0.8;
+}
+
+/* Karartma */
+.nav-mobile__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 78;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+.nav-mobile__scrim--on {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Geçiş noktası: dar ekranda GooeyNav gizlenir, hamburger gelir */
+@media (max-width: 820px) {
+  .nav__desktop { display: none; }
+  .nav__burger { display: flex; }
+}
+@media (min-width: 821px) {
+  .nav-mobile, .nav-mobile__scrim { display: none; }
+}

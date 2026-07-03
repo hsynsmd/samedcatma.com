@@ -1,0 +1,92 @@
+.agent-orchestra {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.agent-orchestra svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Bağlantı çizgileri — yüklenince çizilir */
+.ao-edge {
+  stroke: rgba(91, 108, 255, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: aoDraw 1s ease forwards;
+}
+@keyframes aoDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Mesaj darbeleri */
+.ao-pulse {
+  fill: var(--accent-2);
+  filter: drop-shadow(0 0 5px var(--accent-2));
+}
+
+/* Düğümler — sırayla belirir */
+.ao-node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: aoPop 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes aoPop {
+  from { opacity: 0; transform: scale(0.3); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.ao-node__dot {
+  fill: rgba(91, 108, 255, 0.12);
+  stroke: rgba(91, 108, 255, 0.5);
+  stroke-width: 1.5;
+}
+.ao-node__core {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(91, 108, 255, 0.7));
+}
+
+/* Merkez düğüm */
+.ao-core__dot {
+  fill: var(--surface);
+  stroke: var(--accent-2);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 14px rgba(242, 178, 92, 0.45));
+}
+.ao-core__ring {
+  fill: none;
+  stroke: var(--accent-2);
+  stroke-width: 1;
+  opacity: 0.4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: aoRing 2.6s ease-in-out infinite;
+}
+@keyframes aoRing {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50%      { transform: scale(1.18); opacity: 0; }
+}
+
+/* Etiketler */
+.ao-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  fill: var(--text-soft);
+}
+.ao-label--core {
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--accent-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ao-edge { stroke-dashoffset: 0; animation: none; }
+  .ao-node { opacity: 1; animation: none; }
+  .ao-core__ring { animation: none; }
+  .ao-pulse { display: none; }
+}

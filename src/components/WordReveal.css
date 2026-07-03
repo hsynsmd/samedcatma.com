@@ -1,0 +1,29 @@
+.word-reveal {
+  display: inline;
+}
+
+.word-reveal__w {
+  display: inline-block;
+  margin-right: 0.28em;
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(8px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.6s ease;
+  will-change: opacity, transform, filter;
+}
+
+.word-reveal.in .word-reveal__w {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-reveal__w {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}

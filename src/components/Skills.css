@@ -1,0 +1,166 @@
+.skills {
+  position: relative;
+  padding: 130px 0;
+}
+
+.skills .container {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, 90%);
+  margin: 0 auto;
+}
+
+.skills__kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  letter-spacing: 4px;
+  font-size: 0.82rem;
+  color: var(--accent-2);
+  margin-bottom: 28px;
+}
+.skills__line {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.skills__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+}
+.skills__lead {
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  margin-bottom: 44px;
+  max-width: 560px;
+}
+
+/* Yatay kategori satırları — tek panel, ince ayraçlarla hizalı */
+.skills__rows {
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+    var(--surface);
+  overflow: hidden;
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 24px 26px;
+  transition: background 0.25s ease;
+}
+.skill-row + .skill-row {
+  border-top: 1px solid var(--line);
+}
+.skill-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.skill-row__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 3px;
+}
+.skill-row__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-sm);
+  font-size: 1.05rem;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s, background 0.3s;
+}
+.skill-row:hover .skill-row__icon {
+  transform: scale(1.08) rotate(-5deg);
+  color: #fff;
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+.skill-row__label {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--text);
+}
+
+.skill-row__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Etiketler — dinlenirken sakin, nötr kabuk; renk yalnızca logoda ve hover'da */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #C7CCDA;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s,
+    color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Marka logosu her zaman kendi renginde; kabuk hover'a kadar nötr */
+.skill-tag__logo {
+  font-size: 1rem;
+  color: var(--brand);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+.skill-tag--brand:hover {
+  transform: translateY(-2px);
+  color: #fff;
+  background: color-mix(in srgb, var(--brand) 12%, rgba(255, 255, 255, 0.04));
+  border-color: color-mix(in srgb, var(--brand) 50%, transparent);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--brand) 30%, transparent);
+}
+.skill-tag--brand:hover .skill-tag__logo {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--brand) 60%, transparent));
+}
+
+/* Kavram etiketleri — logosu yok, accent nokta */
+.skill-tag--concept { color: var(--text-soft); }
+.skill-tag__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 6px var(--accent-2);
+  opacity: 0.7;
+}
+.skill-tag--concept:hover {
+  transform: translateY(-2px);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--line-strong);
+}
+
+@media (max-width: 760px) {
+  .skills { padding: 90px 0; }
+
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 22px 20px;
+  }
+  .skill-row__head { padding-top: 0; }
+}

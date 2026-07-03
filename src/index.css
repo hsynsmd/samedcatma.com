@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Palet — grafit + sinyal (indigo & amber) */
+  --bg: #0A0C12;        /* mürekkep */
+  --surface: #141925;   /* arduvaz */
+  --surface-2: #1B2130;
+  --text: #E8EAF0;      /* kâğıt */
+  --text-soft: #8A92A6; /* susturulmuş */
+  --accent: #5B6CFF;    /* elektrik indigo — ajanlar/bağlantılar */
+  --accent-2: #F2B25C;  /* sinyal amber — aktif düğüm/mesaj */
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+
+  /* Tipografi */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Yükseklik / gölge ölçeği — tutarlı derinlik */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent),
+                 0 18px 50px color-mix(in srgb, var(--accent) 22%, transparent);
+
+  /* Yarıçap ölçeği */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+
+  /* GooeyNav baloncuk renkleri (palete uyumlu) */
+  --color-1: #5B6CFF;
+  --color-2: #F2B25C;
+  --color-3: #8B9BFF;
+  --color-4: #E8EAF0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Tüm sayfada süreklilik: hafif nokta dokusu + ince atmosferik ışıma
+     (hero'daki canlı DotField bunun içine soluyor, keskin geçiş olmuyor) */
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(900px 600px at 12% -5%, rgba(91, 108, 255, 0.10), transparent 60%),
+    radial-gradient(800px 600px at 100% 8%, rgba(242, 178, 92, 0.07), transparent 55%);
+  background-size: 24px 24px, auto, auto;
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Erişilebilirlik — net odak halkası (klavye kullanıcıları) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Marka uyumlu metin seçimi */
+::selection {
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: #fff;
+}
+
+/* Tutarlı SVG ikon davranışı (react-icons) */
+svg { flex-shrink: 0; }
+
+/* Mıknatıs sarmalayıcı — yumuşak yaylı geri dönüş */
+.magnetic {
+  display: inline-flex;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.magnetic > * { width: 100%; }
+
