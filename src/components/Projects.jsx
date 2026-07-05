@@ -60,6 +60,14 @@ const projects = [
     tech: ['Node.js', 'TypeScript', 'Gemini', 'PostgreSQL', 'React Native', 'Expo', 'Supabase'],
     image: '/projects/gundem-ai.webp',
     fit: 'cover',
+    pos: 'top',
+    gallery: [
+      { src: '/projects/gundem-ai.webp', label: 'Keşfet — günün AI özeti' },
+      { src: '/projects/gundem-ai-2.webp', label: 'Bana Anlat — AI ile sohbet' },
+      { src: '/projects/gundem-ai-3.webp', label: 'Makale detayı — Bunu Bana Anlat' },
+      { src: '/projects/gundem-ai-4.webp', label: 'Kütüphane — kaydedilen haberler' },
+      { src: '/projects/gundem-ai-5.webp', label: 'Profil & kişiselleştirme' },
+    ],
     url: GH,
   },
   {
@@ -79,7 +87,14 @@ const projects = [
     tech: ['Python', 'OpenCV', 'YOLOv8', 'pyttsx3', 'pygame'],
     image: '/projects/smartvision.webp',
     fit: 'cover',
-    url: GH,
+    gallery: [
+      { src: '/projects/smartvision.webp', label: 'Yaya geçidi — çoklu nesne tespiti' },
+      { src: '/projects/smartvision-2.webp', label: 'Merdiven algılama — tehlike uyarısı' },
+      { src: '/projects/smartvision-3.webp', label: 'Cadde — araç tespiti ve mesafe' },
+      { src: '/projects/smartvision-4.webp', label: 'Yaya + yol tespiti' },
+      { src: '/projects/smartvision-5.webp', label: 'Güvenli yol yönlendirmesi' },
+    ],
+    url: 'https://github.com/Goruntu-Isleme-Projesi/SmartVision-v2',
   },
   {
     id: 'makale',
@@ -98,7 +113,14 @@ const projects = [
     tech: ['React', 'TypeScript', 'Flask', 'JWT', 'SQLAlchemy'],
     image: '/projects/makale.webp',
     fit: 'cover',
-    url: GH,
+    pos: 'top',
+    gallery: [
+      { src: '/projects/makale.webp', label: 'Anasayfa — makale akışı' },
+      { src: '/projects/makale-2.webp', label: 'Makale detayı & yorumlar' },
+      { src: '/projects/makale-3.webp', label: 'Kontrol paneli — makale yönetimi' },
+      { src: '/projects/makale-4.webp', label: 'Giriş ekranı' },
+    ],
+    url: 'https://github.com/hsynsmd/makale_sitesi',
   },
 ]
 
