@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { FiGithub, FiArrowUpRight, FiX, FiExternalLink } from 'react-icons/fi'
+import { FiGithub, FiArrowUpRight, FiX, FiExternalLink, FiChevronLeft, FiChevronRight, FiMaximize2 } from 'react-icons/fi'
 import Reveal from './Reveal'
 import GradientText from './GradientText'
 import './Projects.css'
@@ -183,24 +183,37 @@ function GithubLink({ title, url }) {
 function ProjectModal({ project, onClose }) {
   const [ok, setOk] = useState(true)
   const [idx, setIdx] = useState(0)
+  const [zoom, setZoom] = useState(false)
+
+  const slides = project?.gallery?.length
+    ? project.gallery
+    : project
+      ? [{ src: project.image, label: project.tag }]
+      : []
+
+  const go = useCallback(
+    (dir) => setIdx((i) => (i + dir + slides.length) % slides.length),
+    [slides.length]
+  )
 
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose()
+    const onKey = (e) => {
+      if (e.key === 'Escape') zoom ? setZoom(false) : onClose()
+      else if (e.key === 'ArrowRight') go(1)
+      else if (e.key === 'ArrowLeft') go(-1)
+    }
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
     return () => {
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [onClose])
+  }, [onClose, go, zoom])
 
   useEffect(() => setOk(true), [idx])
 
   if (!project) return null
 
-  const slides = project.gallery?.length
-    ? project.gallery
-    : [{ src: project.image, label: project.tag }]
   const active = slides[idx] || slides[0]
   const hasGallery = slides.length > 1
   const mainFit = hasGallery ? 'contain' : project.fit
@@ -223,10 +236,46 @@ function ProjectModal({ project, onClose }) {
               src={active.src}
               alt={`${project.title} — ${active.label}`}
               onError={() => setOk(false)}
-              style={{ objectFit: mainFit, objectPosition: mainPos }}
+              onClick={() => setZoom(true)}
+              style={{ objectFit: mainFit, objectPosition: mainPos, cursor: 'zoom-in' }}
             />
           ) : (
             <span className="proj-thumb__ph">{project.tag}</span>
+          )}
+
+          {ok && (
+            <button
+              type="button"
+              className="proj-modal__zoom"
+              onClick={() => setZoom(true)}
+              aria-label="Görseli büyüt"
+            >
+              <FiMaximize2 />
+            </button>
+          )}
+
+          {hasGallery && (
+            <>
+              <button
+                type="button"
+                className="proj-modal__nav proj-modal__nav--prev"
+                onClick={() => go(-1)}
+                aria-label="Önceki görsel"
+              >
+                <FiChevronLeft />
+              </button>
+              <button
+                type="button"
+                className="proj-modal__nav proj-modal__nav--next"
+                onClick={() => go(1)}
+                aria-label="Sonraki görsel"
+              >
+                <FiChevronRight />
+              </button>
+              <span className="proj-modal__counter">
+                {idx + 1} / {slides.length}
+              </span>
+            </>
           )}
         </div>
 
@@ -308,6 +357,72 @@ function ProjectModal({ project, onClose }) {
           </div>
         </div>
       </div>
+
+      {zoom && ok && (
+        <div
+          className="proj-lightbox"
+          onClick={(e) => {
+            e.stopPropagation()
+            setZoom(false)
+          }}
+        >
+          <button
+            type="button"
+            className="proj-lightbox__close"
+            onClick={(e) => {
+              e.stopPropagation()
+              setZoom(false)
+            }}
+            aria-label="Kapat"
+          >
+            <FiX />
+          </button>
+
+          {hasGallery && (
+            <button
+              type="button"
+              className="proj-lightbox__nav proj-lightbox__nav--prev"
+              onClick={(e) => {
+                e.stopPropagation()
+                go(-1)
+              }}
+              aria-label="Önceki görsel"
+            >
+              <FiChevronLeft />
+            </button>
+          )}
+
+          <img
+            className="proj-lightbox__img"
+            src={active.src}
+            alt={`${project.title} — ${active.label}`}
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          {hasGallery && (
+            <button
+              type="button"
+              className="proj-lightbox__nav proj-lightbox__nav--next"
+              onClick={(e) => {
+                e.stopPropagation()
+                go(1)
+              }}
+              aria-label="Sonraki görsel"
+            >
+              <FiChevronRight />
+            </button>
+          )}
+
+          <div className="proj-lightbox__cap" onClick={(e) => e.stopPropagation()}>
+            <span>{active.label}</span>
+            {hasGallery && (
+              <span className="proj-lightbox__count">
+                {idx + 1} / {slides.length}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
