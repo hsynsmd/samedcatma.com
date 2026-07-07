@@ -77,7 +77,7 @@ export default async function handler(req, res) {
         src = referrer
       }
     }
-    text = `🔔 <b>Biri portfolyona baktı</b>\n\n${line2}\n🔗 Kaynak: ${src}`
+    text = `🔔 <b>Biri sitene baktı</b>\n\n${line2}\n🔗 Kaynak: ${src}`
   }
 
   try {
