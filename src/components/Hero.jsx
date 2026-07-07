@@ -81,13 +81,16 @@ function Hero() {
               <span className="hero__available-dot" /> Müsait
             </span>
             <div className="hero__socials">
-              <a href="https://github.com/hsynsmd" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/hsynsmd" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                 onClick={() => notifyOnce('notified-contact-GitHub', { type: 'contact', channel: 'GitHub' })}>
                 <FiGithub /><span className="hero__social-label">GitHub</span>
               </a>
-              <a href="https://linkedin.com/in/hsynsmd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/hsynsmd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                 onClick={() => notifyOnce('notified-contact-LinkedIn', { type: 'contact', channel: 'LinkedIn' })}>
                 <FiLinkedin /><span className="hero__social-label">LinkedIn</span>
               </a>
-              <a href="mailto:hsynsamed@gmail.com" aria-label="E-posta">
+              <a href="mailto:hsynsamed@gmail.com" aria-label="E-posta"
+                 onClick={() => notifyOnce('notified-contact-E-posta', { type: 'contact', channel: 'E-posta' })}>
                 <FiMail /><span className="hero__social-label">E-posta</span>
               </a>
             </div>

@@ -50,7 +50,7 @@ export default async function handler(req, res) {
 
   const raw = req.body || {}
   const body = typeof raw === 'string' ? JSON.parse(raw || '{}') : raw
-  const { type = 'visit', project = '', referrer = '' } = body
+  const { type = 'visit', project = '', channel = '', referrer = '' } = body
 
   const country = h['x-vercel-ip-country'] || ''
   const cityRaw = h['x-vercel-ip-city'] || ''
@@ -68,6 +68,8 @@ export default async function handler(req, res) {
   let text
   if (type === 'cv') {
     text = `📄 <b>Biri CV'ni indirdi!</b>\n\n${line2}`
+  } else if (type === 'contact') {
+    text = `🤝 <b>Biri iletişime yöneldi</b>\n«${channel}»\n\n${line2}`
   } else if (type === 'project') {
     text = `👀 <b>Projene bakıldı</b>\n«${project}»\n\n${line2}`
   } else {

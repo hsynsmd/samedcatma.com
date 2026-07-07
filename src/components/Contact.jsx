@@ -60,6 +60,7 @@ function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${c.label}: ${c.value}`}
+                  onClick={() => notifyOnce(`notified-contact-${c.label}`, { type: 'contact', channel: c.label })}
                 >
                   <span className="contact-link__icon"><c.Icon /></span>
                   <span className="contact-link__text">
@@ -73,12 +74,14 @@ function Contact() {
             <Reveal as="div" className="contact__meta" delay={0.18}>
               <span><FiMapPin /> İstanbul, Türkiye</span>
               <span className="contact__sep">·</span>
-              <a href="tel:+905539890306"><FiPhone /> 0553 989 03 06</a>
+              <a href="tel:+905539890306"
+                 onClick={() => notifyOnce('notified-contact-Telefon', { type: 'contact', channel: 'Telefon' })}><FiPhone /> 0553 989 03 06</a>
             </Reveal>
 
             <Reveal as="div" className="contact__cta" delay={0.22}>
               <Magnetic>
-                <a href="mailto:hsynsamed@gmail.com" className="btn btn--primary">Merhaba De <FiArrowRight /></a>
+                <a href="mailto:hsynsamed@gmail.com" className="btn btn--primary"
+                   onClick={() => notifyOnce('notified-contact-E-posta', { type: 'contact', channel: 'E-posta (Merhaba De)' })}>Merhaba De <FiArrowRight /></a>
               </Magnetic>
               <Magnetic>
                 <a href="/Huseyin_Samed_Catma_CV.pdf" className="btn btn--ghost"
