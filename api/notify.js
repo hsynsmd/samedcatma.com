@@ -66,7 +66,9 @@ export default async function handler(req, res) {
   const line2 = `📍 ${flag(country)} ${loc}\n💻 ${device} · ${browser} · ${os}`
 
   let text
-  if (type === 'project') {
+  if (type === 'cv') {
+    text = `📄 <b>Biri CV'ni indirdi!</b>\n\n${line2}`
+  } else if (type === 'project') {
     text = `👀 <b>Projene bakıldı</b>\n«${project}»\n\n${line2}`
   } else {
     let src = 'Doğrudan giriş'

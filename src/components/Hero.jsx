@@ -6,6 +6,7 @@ import DecryptedText from './DecryptedText'
 import ShinyText from './ShinyText'
 import StarBorder from './StarBorder'
 import { useTransition } from './PageTransition'
+import { notifyOnce } from '../lib/notify'
 import './Hero.css'
 
 const NAME = 'Hüseyin Samed Çatma'
@@ -70,7 +71,8 @@ function Hero() {
             </Magnetic>
             <Magnetic>
               <a href="/Huseyin_Samed_Catma_CV.pdf" className="btn btn--ghost btn--lg"
-                 target="_blank" rel="noopener noreferrer"><FiDownload /> CV İndir</a>
+                 target="_blank" rel="noopener noreferrer"
+                 onClick={() => notifyOnce('notified-cv', { type: 'cv' })}><FiDownload /> CV İndir</a>
             </Magnetic>
           </div>
 

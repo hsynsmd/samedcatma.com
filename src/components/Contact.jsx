@@ -4,6 +4,7 @@ import Reveal from './Reveal'
 import Magnetic from './Magnetic'
 import GradientText from './GradientText'
 import ProfileCard from './ProfileCard'
+import { notifyOnce } from '../lib/notify'
 import portraitImg from '../assets/portrait.jpg'
 import './Contact.css'
 
@@ -81,7 +82,8 @@ function Contact() {
               </Magnetic>
               <Magnetic>
                 <a href="/Huseyin_Samed_Catma_CV.pdf" className="btn btn--ghost"
-                   target="_blank" rel="noopener noreferrer"><FiDownload /> CV İndir</a>
+                   target="_blank" rel="noopener noreferrer"
+                   onClick={() => notifyOnce('notified-cv', { type: 'cv' })}><FiDownload /> CV İndir</a>
               </Magnetic>
             </Reveal>
           </div>

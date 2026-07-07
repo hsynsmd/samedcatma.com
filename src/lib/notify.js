@@ -16,3 +16,15 @@ export function notify(payload) {
     /* bildirim başarısız olsa bile siteyi etkilemesin */
   }
 }
+
+// Aynı olayı bir oturumda yalnızca bir kez bildirir (örn. CV indirme)
+export function notifyOnce(key, payload) {
+  if (typeof window === 'undefined') return
+  try {
+    if (sessionStorage.getItem(key)) return
+    sessionStorage.setItem(key, '1')
+  } catch {
+    /* sessionStorage engelliyse yine de bildir */
+  }
+  notify(payload)
+}
