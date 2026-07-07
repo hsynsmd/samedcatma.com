@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { FiGithub, FiArrowUpRight, FiX, FiExternalLink, FiChevronLeft, FiChevronRight, FiMaximize2 } from 'react-icons/fi'
 import Reveal from './Reveal'
 import GradientText from './GradientText'
+import { notify } from '../lib/notify'
 import './Projects.css'
 
 const GH = 'https://github.com/hsynsmd'
@@ -430,7 +431,15 @@ function ProjectModal({ project, onClose }) {
 
 function Projects() {
   const [active, setActive] = useState(null)
-  const open = useCallback((p) => setActive(p), [])
+  const notified = useRef(new Set())
+  const open = useCallback((p) => {
+    setActive(p)
+    // Aynı projeyi bir oturumda yalnızca bir kez bildir
+    if (!notified.current.has(p.id)) {
+      notified.current.add(p.id)
+      notify({ type: 'project', project: p.title })
+    }
+  }, [])
   const close = useCallback(() => setActive(null), [])
 
   const onCardKey = (p) => (e) => {

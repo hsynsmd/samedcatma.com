@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { TransitionProvider } from './components/PageTransition'
+import { notify } from './lib/notify'
 import ClickSpark from './components/ClickSpark'
 import SplashCursor from './components/SplashCursor'
 import Navbar from './components/Navbar'
@@ -21,6 +22,13 @@ function App() {
     update()
     mq.addEventListener('change', update)
     return () => mq.removeEventListener('change', update)
+  }, [])
+
+  // Ziyaret bildirimi — her oturumda yalnızca bir kez
+  useEffect(() => {
+    if (sessionStorage.getItem('notified-visit')) return
+    sessionStorage.setItem('notified-visit', '1')
+    notify({ type: 'visit', referrer: document.referrer })
   }, [])
 
   return (
