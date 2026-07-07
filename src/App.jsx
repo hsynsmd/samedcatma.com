@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { TransitionProvider } from './components/PageTransition'
 import ClickSpark from './components/ClickSpark'
 import SplashCursor from './components/SplashCursor'
@@ -46,6 +47,7 @@ function App() {
           <Contact />
         </div>
       </ClickSpark>
+      <Analytics />
     </TransitionProvider>
   )
 }
