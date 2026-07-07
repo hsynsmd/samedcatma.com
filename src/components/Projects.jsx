@@ -224,6 +224,7 @@ function ProjectModal({ project, onClose }) {
       <div
         className={`proj-modal__panel proj-card--${project.accent}`}
         onClick={(e) => e.stopPropagation()}
+        data-lenis-prevent
       >
         <button className="proj-modal__close" onClick={onClose} aria-label="Kapat">
           <FiX />
