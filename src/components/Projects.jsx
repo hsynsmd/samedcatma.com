@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { FiGithub, FiArrowUpRight, FiX, FiExternalLink, FiChevronLeft, FiChevronRight, FiMaximize2 } from 'react-icons/fi'
+import { FaApple } from 'react-icons/fa'
 import Reveal from './Reveal'
 import GradientText from './GradientText'
 import { notify } from '../lib/notify'
@@ -47,11 +48,12 @@ const projects = [
     id: 'gundem-ai',
     tag: 'Full-Stack AI',
     accent: 'amber',
-    status: 'Tamamlandı',
+    status: "App Store'da Yayında",
     title: 'Gündem AI',
     summary: 'Kişiselleştirilmiş AI haber uygulaması — gerçek zamanlı LLM özetleme.',
     detail:
-      'Kullanıcının ilgi alanlarına göre haber akışını kişiselleştiren, gerçek zamanlı LLM özetleme sunan full-stack mobil uygulama. "Bana Anlat" özelliği SSE streaming ile canlı özet üretir.',
+      'Kullanıcının ilgi alanlarına göre haber akışını kişiselleştiren, gerçek zamanlı LLM özetleme sunan full-stack mobil uygulama. "Bana Anlat" özelliği SSE streaming ile canlı özet üretir. App Store\'da yayında.',
+    storeUrl: 'https://apps.apple.com/tr/app/id6787883391',
     highlights: [
       'LLM SSE streaming "Bana Anlat" + Gemini ile otonom Türkçe özetleme',
       '9 AI kaynağından kazıma, node-cron pipeline, staging tekilleştirme',
@@ -177,6 +179,21 @@ function GithubLink({ title, url }) {
       onClick={(e) => e.stopPropagation()}
     >
       <FiGithub /> GitHub <FiArrowUpRight className="proj-card__link-arrow" />
+    </a>
+  )
+}
+
+function StoreLink({ title, url }) {
+  return (
+    <a
+      className="proj-card__link"
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${title} — App Store`}
+      onClick={(e) => e.stopPropagation()}
+    >
+      <FaApple /> App Store <FiArrowUpRight className="proj-card__link-arrow" />
     </a>
   )
 }
@@ -338,6 +355,16 @@ function ProjectModal({ project, onClose }) {
           <TechRow items={project.tech} />
 
           <div className="proj-modal__links">
+            {project.storeUrl && (
+              <a
+                className="proj-modal__link proj-modal__link--primary"
+                href={project.storeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaApple /> App Store'da İncele
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 className="proj-modal__link proj-modal__link--primary"
@@ -530,7 +557,11 @@ function Projects() {
                     <span className="proj-card__tag-dot" />
                     {p.tag}
                   </span>
-                  <GithubLink title={p.title} url={p.url} />
+                  {p.storeUrl ? (
+                    <StoreLink title={p.title} url={p.storeUrl} />
+                  ) : (
+                    <GithubLink title={p.title} url={p.url} />
+                  )}
                 </div>
                 <h3 className="proj-card__title">{p.title}</h3>
                 <p className="proj-card__summary">{p.summary}</p>

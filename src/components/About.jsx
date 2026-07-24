@@ -7,7 +7,7 @@ import './About.css'
 const principles = [
   { Icon: FiShield, glow: '91, 108, 255', title: 'Yapay Zeka Odaklı Geliştirme', description: 'ML, deep learning, NLP ve computer vision alanlarında model ve uygulama odaklı çalışmalar yapıyorum.' },
   { Icon: FiGitBranch, glow: '91, 214, 176', title: 'LLM & Agent Sistemleri', description: 'RAG, tool calling ve orchestrator pattern ile LLM tabanlı akıllı iş akışları geliştiriyorum.' },
-  { Icon: FiLayers, glow: '242, 178, 92', title: 'AI Destekli Mobil Ürünler', description: 'React Native ve Expo ile Gündem AI gibi yapay zeka destekli mobil uygulamalar geliştiriyorum.' },
+  { Icon: FiLayers, glow: '242, 178, 92', title: 'AI Destekli Mobil Ürünler', description: "React Native ve Expo ile yapay zeka destekli mobil uygulamalar geliştiriyorum — Gündem AI App Store'da yayında." },
   { Icon: FiTarget, glow: '139, 155, 255', title: 'Uçtan Uca Sistem Kurma', description: 'Backend, API, veritabanı, web/mobil arayüz ve yapay zeka katmanlarını entegre ederek çalışan ürünler geliştiriyorum.' },
 ]
 
