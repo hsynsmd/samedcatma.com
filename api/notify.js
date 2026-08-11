@@ -3,10 +3,12 @@
 // Bot token ve chat id, Vercel ortam değişkenlerinden okunur — istemciye asla gitmez.
 //
 // GÜVENLİK: Bu uç nokta herkese açıktır (anonim ziyaretçiler tetikler). Bu yüzden
-// gövdeden gelen HİÇBİR metne güvenilmez: değerler HTML-escape edilir, uzunlukları
-// sınırlanır ve serbest metin alanları (proje/kanal) sabit bir beyaz listeyle
-// doğrulanır. Böylece istemci yalnızca önceden tanımlı bildirimleri tetikleyebilir,
-// kendi yazdığı metni Telegram'a enjekte edemez.
+// gövdeden gelen HİÇBİR metin mesaja olduğu gibi yazılmaz. type/proje/kanal sabit
+// beyaz listelerle doğrulanır; referrer ise tanınan alan adları için sabit bir
+// etikete (Google, LinkedIn, ...) çevrilir, tanınmıyorsa "Diğer site" basılır.
+// Sonuç: mesajın tamamı sunucu tarafından üretilen sabit metinlerden oluşur —
+// istemcinin yazdığı tek bir karakter bile Telegram'a ulaşmaz.
+// Hacim tarafında IP başına sınır + global tavan/susturma vardır.
 
 // Telegram parse_mode: 'HTML' kullandığı için özel karakterler kaçırılmalı.
 function escapeHtml(s) {
@@ -43,13 +45,66 @@ const CHANNELS = new Set([
 ])
 const TYPES = new Set(['visit', 'cv', 'contact', 'project'])
 
-// Basit, en-iyi-çaba (best-effort) IP bazlı hız sınırı. Vercel örnekleri sıcak
-// kaldığı sürece Map korunur; bir spam patlamasının çoğunu yakalar. Kesin bir
-// çözüm için Upstash/Vercel KV gerekir, ama portföy için bu yeterli.
+// Ziyaret bildirimindeki "Kaynak" satırı da istemciden geliyordu ve serbest metindi.
+// Artık ham referrer ASLA mesaja yazılmaz: tanınan bir alan adıysa sabit etiketi,
+// değilse "Diğer site" basılır. Böylece mesajda istemci kaynaklı tek bir serbest
+// karakter bile kalmaz.
+const REFERRERS = [
+  ['google.', 'Google'],
+  ['bing.', 'Bing'],
+  ['yandex.', 'Yandex'],
+  ['duckduckgo.', 'DuckDuckGo'],
+  ['linkedin.', 'LinkedIn'],
+  ['lnkd.in', 'LinkedIn'],
+  ['github.', 'GitHub'],
+  ['instagram.', 'Instagram'],
+  ['twitter.', 'X'],
+  ['x.com', 'X'],
+  ['t.co', 'X'],
+  ['facebook.', 'Facebook'],
+  ['youtube.', 'YouTube'],
+  ['chatgpt.', 'ChatGPT'],
+  ['openai.', 'ChatGPT'],
+  ['claude.ai', 'Claude'],
+  ['reddit.', 'Reddit'],
+  ['medium.', 'Medium'],
+  ['apps.apple.com', 'App Store'],
+  ['samedcatma.com', 'Site içi'],
+]
+function sourceLabel(referrer) {
+  if (!referrer || typeof referrer !== 'string' || referrer.length > 500) {
+    return 'Doğrudan giriş'
+  }
+  let host
+  try {
+    const u = new URL(referrer)
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return 'Diğer site'
+    host = u.hostname.toLowerCase()
+  } catch {
+    return 'Diğer site'
+  }
+  for (const [needle, label] of REFERRERS) {
+    if (host.includes(needle)) return label
+  }
+  return 'Diğer site'
+}
+
+// Basit, en-iyi-çaba (best-effort) hız sınırı. Vercel örnekleri sıcak kaldığı
+// sürece Map korunur. IP başına sınır IP döndürerek aşılabilir, bu yüzden asıl
+// koruma GLOBAL tavan: kim tetiklerse tetiklesin belli bir süre içinde şu kadardan
+// fazla bildirim gelmez, sonrasında uç nokta kendini susturur.
+// (Kesin çözüm için Upstash/Vercel KV gerekir; portföy için bu tavan yeterli.)
 const HITS = new Map()
 const WINDOW_MS = 60_000
-const MAX_HITS = 12
-function rateLimited(ip) {
+const MAX_PER_IP = 6
+
+const GLOBAL_WINDOW_MS = 10 * 60_000
+const MAX_GLOBAL = 20
+const MUTE_MS = 30 * 60_000
+let globalHits = []
+let mutedUntil = 0
+
+function ipLimited(ip) {
   const now = Date.now()
   const recent = (HITS.get(ip) || []).filter((t) => now - t < WINDOW_MS)
   recent.push(now)
@@ -59,18 +114,30 @@ function rateLimited(ip) {
       if (!v.some((t) => now - t < WINDOW_MS)) HITS.delete(k)
     }
   }
-  return recent.length > MAX_HITS
+  return recent.length > MAX_PER_IP
+}
+
+// Dönüş: 'ok' | 'muted' (sessizce yut) | 'mute-now' (tek bir uyarı gönder, sonra sus)
+function globalGate() {
+  const now = Date.now()
+  if (now < mutedUntil) return 'muted'
+  globalHits = globalHits.filter((t) => now - t < GLOBAL_WINDOW_MS)
+  globalHits.push(now)
+  if (globalHits.length > MAX_GLOBAL) {
+    mutedUntil = now + MUTE_MS
+    return 'mute-now'
+  }
+  return 'ok'
 }
 
 function allowedOrigin(origin) {
   if (!origin) return false
   try {
     const host = new URL(origin).hostname
-    return (
-      host === 'samedcatma.com' ||
-      host.endsWith('.samedcatma.com') ||
-      host.endsWith('.vercel.app')
-    )
+    // Sadece kendi alan adımız. ".vercel.app" joker kartı kaldırıldı: o kalıp
+    // herkesin kendi vercel sayfasından buraya istek atmasına izin veriyordu.
+    // (Yan etki: preview deploy'larından bildirim gelmez — istenen davranış.)
+    return host === 'samedcatma.com' || host.endsWith('.samedcatma.com')
   } catch {
     return false
   }
@@ -124,11 +191,13 @@ export default async function handler(req, res) {
     return
   }
 
+  // Vercel'in kendi doldurduğu başlıkları önce dene; x-forwarded-for son çare.
   const ip =
-    (h['x-forwarded-for'] || '').split(',')[0].trim() ||
+    h['x-vercel-forwarded-for'] ||
     h['x-real-ip'] ||
+    (h['x-forwarded-for'] || '').split(',')[0].trim() ||
     'unknown'
-  if (rateLimited(ip)) {
+  if (ipLimited(ip)) {
     res.status(429).json({ error: 'Too many requests' })
     return
   }
@@ -181,15 +250,20 @@ export default async function handler(req, res) {
   } else if (type === 'project') {
     text = `👀 <b>Projene bakıldı</b>\n«${clean(project)}»\n\n${line2}`
   } else {
-    let src = 'Doğrudan giriş'
-    if (referrer) {
-      try {
-        src = new URL(referrer).hostname.replace(/^www\./, '')
-      } catch {
-        src = referrer
-      }
-    }
-    text = `🔔 <b>Biri sitene baktı</b>\n\n${line2}\n🔗 Kaynak: ${clean(src, 60)}`
+    text = `🔔 <b>Biri sitene baktı</b>\n\n${line2}\n🔗 Kaynak: ${sourceLabel(referrer)}`
+  }
+
+  // Global tavan: aşılırsa tek bir uyarı gönderilir, sonrası sessizce yutulur.
+  const gate = globalGate()
+  if (gate === 'muted') {
+    res.status(429).json({ error: 'Too many requests' })
+    return
+  }
+  if (gate === 'mute-now') {
+    text =
+      `🛑 <b>Bildirim seli algılandı</b>\n` +
+      `Son ${GLOBAL_WINDOW_MS / 60000} dakikada ${MAX_GLOBAL}+ tetikleme geldi.\n` +
+      `Bildirimler ${MUTE_MS / 60000} dakika susturuldu.`
   }
 
   try {
