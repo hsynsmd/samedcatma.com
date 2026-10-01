@@ -7,10 +7,10 @@ const items = [
   {
     Icon: FiCode,
     kind: 'İş',
-    title: 'Yazılım Geliştirici · Kurucu Ekip',
+    title: 'Yazılım Geliştirici',
     org: 'MOI Games Bilişim A.Ş.',
     date: 'Tem 2026 – Günümüz',
-    meta: '3 kişilik kurucu ekip · Müşteri projeleri',
+    meta: 'Müşteri projeleri · Web, veritabanı ve masaüstü',
     desc: 'MOI’nin teknik tarafını yürütüyorum: GitHub organizasyonunu ve PR tabanlı çalışma düzenini kurdum; AARU Residences için devraldığım statik sitenin arkasına Supabase veritabanını, otomatik yayın hattını, güvenlik planını ve ziyaret ölçüm sistemini kurdum; Seydikemer Beton’un kurumsal sitesini yaptım. Şu anda bir gayrimenkul geliştiricisi için masaüstü karar destek sistemi geliştiriyorum.',
     accent: 'indigo',
     ongoing: true,
