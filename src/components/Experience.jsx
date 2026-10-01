@@ -11,7 +11,7 @@ const items = [
     org: 'MOI Games Bilişim A.Ş.',
     date: 'Tem 2026 – Günümüz',
     meta: 'Müşteri projeleri · Web, veritabanı ve masaüstü',
-    desc: 'MOI’nin teknik tarafını yürütüyorum: GitHub organizasyonunu ve PR tabanlı çalışma düzenini kurdum; AARU Residences için devraldığım statik sitenin arkasına Supabase veritabanını, otomatik yayın hattını, güvenlik planını ve ziyaret ölçüm sistemini kurdum; Seydikemer Beton’un kurumsal sitesini yaptım. Şu anda bir gayrimenkul geliştiricisi için masaüstü karar destek sistemi geliştiriyorum.',
+    desc: 'MOI’nin teknik tarafını yürütüyorum: GitHub organizasyonunu ve PR tabanlı çalışma düzenini kurdum; AARU Group’un 7 dilli kurumsal sitesini Supabase veritabanı, otomatik yayın hattı, güvenlik planı ve ziyaret ölçüm sistemiyle geliştirdim; Seydikemer Beton’un kurumsal sitesini yaptım. Şu anda bir gayrimenkul geliştiricisi için masaüstü karar destek sistemi geliştiriyorum.',
     accent: 'indigo',
     ongoing: true,
   },

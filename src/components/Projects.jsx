@@ -82,9 +82,9 @@ const projects = [
     status: 'Canlıda',
     title: 'AARU Group Web Sitesi',
     summary:
-      'Fethiye merkezli bir konut geliştiricisinin 7 dilli kurumsal sitesi — MOI’de devralıp yayına aldığım müşteri projesi.',
+      'Fethiye merkezli lüks konut geliştiricisi AARU Group’un 7 dilli kurumsal sitesi — MOI’de geliştirdiğim müşteri projesi.',
     detail:
-      'MOI Games Bilişim’de devraldığım statik siteyi 5,5 haftada (454 commit) ekibin kendisinin düzenleyebildiği, ziyaretleri ölçülen ve main dalına her girişte otomatik yayınlanan canlı bir siteye dönüştürdüm. Devraldığımda 7 dil ve PWA altyapısı vardı; yerinde düzenleme modu, Supabase veritabanı, yayın hattı, ziyaret ölçümü, güvenlik planı ve Mimari Atlas, Yaşam, Journal bölümleri sonradan benim eklediklerim.',
+      'Sitenin amacı, AARU’nun Fethiye, Dalaman ve Antalya’daki konut projelerini yerli ve yabancı alıcılara yedi dilde tanıtmak, bölgedeki yaşamı (sofra, aktiviteler, mimari) anlatmak ve ziyaretçiyi iletişim formlarıyla potansiyel müşteriye dönüştürmek. Ekip içeriği kod bilmeden sayfanın üzerinden düzenleyebiliyor; site main dalına her girişte otomatik olarak yayınlanıyor.',
     highlights: [
       'Yerinde düzenleme modu: yönetici siteyi gezerek metni 7 dilde, görselleri ve bölüm sırasını değiştiriyor; değişiklik geçmişi ve geri alma',
       'Supabase (PostgreSQL): 34 SQL göç adımıyla şema, yönetici yetkileri, görsel deposu ve değişiklik geçmişi',
