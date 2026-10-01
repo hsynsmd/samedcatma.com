@@ -50,11 +50,10 @@ function Hero() {
             />
           </p>
           <p className="hero__tagline">
-            Makine öğrenmesi, derin öğrenme, doğal dil işleme, görüntü işleme ve LLM
-            tabanlı ajan sistemleri üzerine çalışan bilgisayar mühendisliği öğrencisiyim.
-            Yapay zekâyı; veri, backend, web/mobil arayüz ve otomasyon katmanlarıyla
-            birleştirerek gerçek dünya problemlerine uygulanabilir akıllı sistemler
-            geliştirmeye odaklanıyorum.
+            Makine öğrenmesi ve görüntü işleme temelinden gelip LLM ve ajan sistemlerine
+            odaklanan bir bilgisayar mühendisliği öğrencisiyim. Yapay zekâ modellerini
+            backend, veri ve deployment katmanlarıyla birleştirerek uçtan uca AI sistemleri
+            geliştiriyorum.
           </p>
           <div className="hero__cta">
             <Magnetic>

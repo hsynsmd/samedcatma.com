@@ -83,7 +83,6 @@
   font-weight: 700;
   fill: var(--accent-2);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .ao-edge { stroke-dashoffset: 0; animation: none; }
   .ao-node { opacity: 1; animation: none; }

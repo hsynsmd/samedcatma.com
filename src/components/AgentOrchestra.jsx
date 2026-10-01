@@ -7,14 +7,19 @@ import './AgentOrchestra.css'
  */
 const CORE = { id: 'core', label: 'Orchestrator', x: 220, y: 215 }
 
+// Saat yönünün tersine: üst → sol üst → sol alt → alt → sağ alt → sağ üst.
+// Üst/sol: temel ve odak (LLM, ML, Vision); sağ/alt: mühendislik katmanları
+// (backend, veri, deployment) — Hero paragrafıyla aynı hikâye.
 const AGENTS = [
-  { id: 'demand', label: 'LLM Agents', x: 220, y: 48 },
-  { id: 'stock', label: 'NLP', x: 372, y: 132 },
-  { id: 'order', label: 'Backend/API', x: 372, y: 298 },
-  { id: 'report', label: 'Mobile Apps', x: 220, y: 382 },
-  { id: 'rag', label: 'Vision', x: 68, y: 298 },
-  { id: 'ml', label: 'ML/DL', x: 68, y: 132 },
+  { id: 'llm', label: 'LLM / Agents', x: 220, y: 48 },
+  { id: 'ml', label: 'ML / DL', x: 68, y: 132 },
+  { id: 'data', label: 'Data / SQL', x: 68, y: 298 },
+  { id: 'vision', label: 'Vision', x: 220, y: 382 },
+  { id: 'backend', label: 'Backend / API', x: 372, y: 298 },
+  { id: 'deploy', label: 'Deployment', x: 372, y: 132 },
 ]
+
+const etiketY = (a) => (a.y > CORE.y ? a.y + 30 : a.y - 24)
 
 function AgentOrchestra() {
   return (
@@ -50,12 +55,7 @@ function AgentOrchestra() {
           <g key={a.id} className="ao-node" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
             <circle className="ao-node__dot" cx={a.x} cy={a.y} r="15" />
             <circle className="ao-node__core" cx={a.x} cy={a.y} r="5" />
-            <text
-              className="ao-label"
-              x={a.x}
-              y={a.y > CORE.y ? a.y + 30 : a.y - 24}
-              textAnchor="middle"
-            >
+            <text className="ao-label" x={a.x} y={etiketY(a)} textAnchor="middle">
               {a.label}
             </text>
           </g>
