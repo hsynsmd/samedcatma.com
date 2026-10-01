@@ -46,6 +46,7 @@ const projects = [
   },
   {
     id: 'gundem-ai',
+    wide: true,
     tag: 'Full-Stack AI',
     accent: 'amber',
     status: "App Store'da Yayında",
@@ -74,33 +75,8 @@ const projects = [
     url: GH,
   },
   {
-    id: 'smartvision',
-    tag: 'Computer Vision',
-    accent: 'teal',
-    status: 'Tamamlandı',
-    title: 'SmartVisionAssist',
-    summary: 'Görme engelliler için gerçek zamanlı sesli yönlendirme sistemi.',
-    detail:
-      'Kamera akışını gerçek zamanlı işleyerek nesneleri tespit eden, konumlarını ve mesafelerini sese çeviren yardımcı görü sistemi. Tehlike düzeyine göre öncelikli sesli bildirim verir.',
-    highlights: [
-      'YOLOv8 nesne tespiti; 3x3 konum ızgarası ve pinhole mesafe tahmini',
-      'Tehlike düzeyine göre sınıflandırma (dangerous / safe / info)',
-      'Çoklu thread + kuyruk ile akışı bloklamayan asenkron sesli bildirim',
-    ],
-    tech: ['Python', 'OpenCV', 'YOLOv8', 'pyttsx3', 'pygame'],
-    image: '/projects/smartvision.webp',
-    fit: 'cover',
-    gallery: [
-      { src: '/projects/smartvision.webp', label: 'Yaya geçidi — çoklu nesne tespiti' },
-      { src: '/projects/smartvision-2.webp', label: 'Merdiven algılama — tehlike uyarısı' },
-      { src: '/projects/smartvision-3.webp', label: 'Cadde — araç tespiti ve mesafe' },
-      { src: '/projects/smartvision-4.webp', label: 'Yaya + yol tespiti' },
-      { src: '/projects/smartvision-5.webp', label: 'Güvenli yol yönlendirmesi' },
-    ],
-    url: 'https://github.com/Goruntu-Isleme-Projesi/SmartVision-v2',
-  },
-  {
     id: 'aaru',
+    wide: true,
     tag: 'Müşteri Projesi',
     accent: 'amber',
     status: 'Canlıda',
@@ -131,6 +107,32 @@ const projects = [
     // Depo MOI organizasyonunda ve gizli: GitHub bağlantısı yok.
     // HTTPS (443) şu an zaman aşımında; düzelince adres https'e çevrilecek.
     liveUrl: 'http://aaruresidences.com',
+  },
+  {
+    id: 'smartvision',
+    tag: 'Computer Vision',
+    accent: 'teal',
+    status: 'Tamamlandı',
+    title: 'SmartVisionAssist',
+    summary: 'Görme engelliler için gerçek zamanlı sesli yönlendirme sistemi.',
+    detail:
+      'Kamera akışını gerçek zamanlı işleyerek nesneleri tespit eden, konumlarını ve mesafelerini sese çeviren yardımcı görü sistemi. Tehlike düzeyine göre öncelikli sesli bildirim verir.',
+    highlights: [
+      'YOLOv8 nesne tespiti; 3x3 konum ızgarası ve pinhole mesafe tahmini',
+      'Tehlike düzeyine göre sınıflandırma (dangerous / safe / info)',
+      'Çoklu thread + kuyruk ile akışı bloklamayan asenkron sesli bildirim',
+    ],
+    tech: ['Python', 'OpenCV', 'YOLOv8', 'pyttsx3', 'pygame'],
+    image: '/projects/smartvision.webp',
+    fit: 'cover',
+    gallery: [
+      { src: '/projects/smartvision.webp', label: 'Yaya geçidi — çoklu nesne tespiti' },
+      { src: '/projects/smartvision-2.webp', label: 'Merdiven algılama — tehlike uyarısı' },
+      { src: '/projects/smartvision-3.webp', label: 'Cadde — araç tespiti ve mesafe' },
+      { src: '/projects/smartvision-4.webp', label: 'Yaya + yol tespiti' },
+      { src: '/projects/smartvision-5.webp', label: 'Güvenli yol yönlendirmesi' },
+    ],
+    url: 'https://github.com/Goruntu-Isleme-Projesi/SmartVision-v2',
   },
   {
     id: 'miniebys',
@@ -180,10 +182,10 @@ const projects = [
     fit: 'cover',
     pos: 'top',
     gallery: [
-      { src: '/projects/makale.webp', label: 'Anasayfa — makale akışı' },
-      { src: '/projects/makale-2.webp', label: 'Makale detayı & yorumlar' },
-      { src: '/projects/makale-3.webp', label: 'Kontrol paneli — makale yönetimi' },
-      { src: '/projects/makale-4.webp', label: 'Giriş ekranı' },
+      { src: '/projects/makale.webp', label: 'Anasayfa — makale akışı (tasarım taslağı)' },
+      { src: '/projects/makale-2.webp', label: 'Makale detayı & yorumlar (tasarım taslağı)' },
+      { src: '/projects/makale-3.webp', label: 'Kontrol paneli — makale yönetimi (tasarım taslağı)' },
+      { src: '/projects/makale-4.webp', label: 'Giriş ekranı (tasarım taslağı)' },
     ],
     url: 'https://github.com/hsynsmd/makale_sitesi',
   },
@@ -620,7 +622,7 @@ function Projects() {
         <div className="proj-grid">
           {rest.map((p, i) => (
             <Reveal
-              className={`proj-card proj-card--${p.accent}`}
+              className={`proj-card proj-card--${p.accent}${p.wide ? ' proj-card--wide' : ''}`}
               key={p.id}
               delay={0.16 + i * 0.08}
               onMouseMove={handleSpotlight}

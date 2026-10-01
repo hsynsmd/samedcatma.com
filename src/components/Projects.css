@@ -262,11 +262,22 @@
   margin-bottom: 12px;
 }
 
-/* ---- Secondary grid ---- */
+/* ---- Secondary grid ----
+   6 sütunlu ızgara: normal kart 2 sütun (satırda 3 kart), geniş kart 3 sütun
+   (satırda 2 kart). Canlıdaki ürünler (wide: true) üst satırda geniş durur,
+   tamamlanmış projeler alt satırda üçlü — boş hücre kalmaz. */
 .proj-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 22px;
+}
+
+.proj-grid > .proj-card {
+  grid-column: span 2;
+}
+
+.proj-grid > .proj-card--wide {
+  grid-column: span 3;
 }
 
 .proj-card__content {
@@ -842,6 +853,18 @@
 
   .proj-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* İki sütunda genişlik ayrımı yok. Kart sayısı tekse İLK kart satırı
+     doldurur (sondan sayınca tek sırada = toplam tek); öne çıkan proje büyür,
+     sona tek kart kalmaz. */
+  .proj-grid > .proj-card,
+  .proj-grid > .proj-card--wide {
+    grid-column: auto;
+  }
+
+  .proj-grid > .proj-card:first-child:nth-last-child(odd) {
+    grid-column: 1 / -1;
   }
 }
 
