@@ -1,4 +1,4 @@
-import { FiBookOpen, FiAward, FiStar, FiBriefcase, FiCode } from 'react-icons/fi'
+import { FiBookOpen, FiAward, FiStar, FiBriefcase, FiCode, FiArrowUpRight } from 'react-icons/fi'
 import Reveal from './Reveal'
 import GradientText from './GradientText'
 import './Experience.css'
@@ -22,7 +22,7 @@ const items = [
     org: 'Denizli Orman Bölge Müdürlüğü',
     date: '29 Haz 2026 – 10 Ağu 2026',
     meta: '30 iş günü · Yazılım stajı · Denizli',
-    desc: 'Birimleri gezip kurumdaki yoğun evrak ve imza trafiğini gözlemledim. Merkezî sistemlere ekleme yapılamadığı ve kurum ağına erişimim olmadığı için kendi bilgisayarımda, internetsiz ve kurulumsuz çalışan MiniEBYS’yi geliştirdim: resmî yazı üretimi, mevzuat araması ve havale/paraf/imza akışı tek dosyada. Ayrıntılar Projeler bölümünde.',
+    desc: 'Birimleri gezip kurumdaki yoğun evrak ve imza trafiğini gözlemledim; merkezî sistemlere ekleme yapılamadığı ve kurum ağına erişimim olmadığı için kendi bilgisayarımda internetsiz çalışan MiniEBYS’yi geliştirdim (Projeler bölümünde). Üçüncü haftadan itibaren kurumun uluslararası ortaklarla yürüttüğü AB Horizon Europe proje çalışmalarına katıldım: İngilizce yürüyen haftalık toplantılarda yer aldım; başvuru taslaklarının (Türkçe/İngilizce), hibe konsept notlarının ve sunumların hazırlanmasına destek verdim.',
     accent: 'violet',
   },
   {
@@ -34,6 +34,16 @@ const items = [
     meta: '3 kişilik ekip · LLM tabanlı çok ajanlı market zinciri otomasyonu',
     desc: 'Üç kişilik ekip olarak geliştirdiğimiz bitirme projemiz, Pamukkale Teknokent’teki bitirme projesi sunumlarında IoT, Otomasyon, Ulaşım ve Gömülü Sistemler kategorisinde ikincilik ödülü aldı.',
     accent: 'teal',
+  },
+  {
+    Icon: FiAward,
+    kind: 'Sertifika',
+    title: 'Yapay Zeka Uygulamaları: LangChain, RAG, LLM Orkestrasyonu',
+    org: 'Udemy — Atıl Samancıoğlu, Academy Club',
+    meta: 'Bitirme sertifikası · 13 saat',
+    desc: 'LangChain ile LLM uygulamaları, RAG (retrieval-augmented generation) ve çok adımlı LLM orkestrasyonu üzerine kursu tamamladım.',
+    accent: 'amber',
+    link: { href: 'https://www.udemy.com/certificate/UC-14ab3fe6-ca13-4d36-aff3-711333adfc0b/', label: 'Sertifikayı doğrula' },
   },
   {
     Icon: FiAward,
@@ -51,7 +61,7 @@ const items = [
     title: 'Bilgisayar Mühendisliği',
     org: 'Pamukkale Üniversitesi',
     date: 'Eyl 2022 – Günümüz',
-    meta: '4. Sınıf · GPA 3.23 / 4.00 · Denizli',
+    meta: '4. Sınıf · GPA 3.24 / 4.00 · Denizli',
     desc: 'Çok ajanlı LLM sistemleri, makine öğrenmesi ve yazılım mühendisliği üzerine yoğunlaşarak lisans eğitimimi sürdürüyorum.',
     accent: 'indigo',
     ongoing: true,
@@ -94,12 +104,17 @@ function Experience() {
                       <span className="tl-org">{it.org}</span>
                     </div>
                   </div>
-                  <span className="tl-date">{it.date}</span>
+                  {it.date && <span className="tl-date">{it.date}</span>}
                 </div>
                 <div className="tl-meta">
                   <span className="tl-sub">{it.meta}</span>
                 </div>
                 <p className="tl-desc">{it.desc}</p>
+                {it.link && (
+                  <a className="tl-link" href={it.link.href} target="_blank" rel="noopener noreferrer">
+                    {it.link.label} <FiArrowUpRight />
+                  </a>
+                )}
               </div>
             </Reveal>
           ))}
