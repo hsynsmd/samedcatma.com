@@ -26,6 +26,15 @@ Beklenen dosya adları (Projects.jsx içindeki `image`/`gallery` yollarıyla eş
   makale-3.webp          -> Kontrol paneli — makale yönetimi    (modal galeri)
   makale-4.webp          -> Giriş ekranı                        (modal galeri)
   (arayüz tasarım mockup'ı — SVG'den üretildi; png yedekleri image-backup/)
+  aaru.webp              -> AARU Group (kapak: giriş perdesi)
+  aaru-2.webp            -> Ana sayfa                               (modal galeri)
+  aaru-3.webp            -> Yaşam — aktiviteler                     (modal galeri)
+  aaru-4.webp            -> Mimari Atlas                            (modal galeri)
+  aaru-5.webp            -> Yaşam — sofra seçkisi                   (modal galeri)
+  aaru-6.webp            -> Projeler — filtreli portföy             (modal galeri)
+  (01.10.2026'da yerel kopyadan [v319, canlıyla aynı] headless Edge + CDP ile çekildi;
+   localhost'ta ölçüm saymaz. PNG asılları ~10 MB olduğu için image-backup/'ta YALNIZ
+   yerelde, .gitignore ile git dışı.)
   miniebys.webp          -> MiniEBYS (kapak: İşlerim — imza, havale, termin)
   miniebys-2.webp        -> Mevzuat Ara — çevrimdışı madde araması (modal galeri)
   miniebys-3.webp        -> Belge önizlemesi — formdan resmî yazı  (modal galeri)

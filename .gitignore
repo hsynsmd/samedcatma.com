@@ -24,3 +24,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# AARU ekran görüntülerinin PNG asılları (~10 MB, fotoğraf ağırlıklı): yalnız
+# yerelde yedek. Depoyu kalıcı şişirmesin diye git dışı; sitede WebP'leri var.
+image-backup/aaru*.png

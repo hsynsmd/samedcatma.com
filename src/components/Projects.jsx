@@ -100,6 +100,39 @@ const projects = [
     url: 'https://github.com/Goruntu-Isleme-Projesi/SmartVision-v2',
   },
   {
+    id: 'aaru',
+    tag: 'Müşteri Projesi',
+    accent: 'amber',
+    status: 'Canlıda',
+    title: 'AARU Group Web Sitesi',
+    summary:
+      'Fethiye merkezli bir konut geliştiricisinin 7 dilli kurumsal sitesi — MOI’de devralıp yayına aldığım müşteri projesi.',
+    detail:
+      'MOI Games Bilişim’de devraldığım statik siteyi 5,5 haftada (454 commit) ekibin kendisinin düzenleyebildiği, ziyaretleri ölçülen ve main dalına her girişte otomatik yayınlanan canlı bir siteye dönüştürdüm. Devraldığımda 7 dil ve PWA altyapısı vardı; yerinde düzenleme modu, Supabase veritabanı, yayın hattı, ziyaret ölçümü, güvenlik planı ve Mimari Atlas, Yaşam, Journal bölümleri sonradan benim eklediklerim.',
+    highlights: [
+      'Yerinde düzenleme modu: yönetici siteyi gezerek metni 7 dilde, görselleri ve bölüm sırasını değiştiriyor; değişiklik geçmişi ve geri alma',
+      'Supabase (PostgreSQL): 34 SQL göç adımıyla şema, yönetici yetkileri, görsel deposu ve değişiklik geçmişi',
+      'GitHub Actions yayın hattı: beyaz listeyle paketleme, sürüm tutarlılığı bekçisi, FTPS yükleme ve yayın sonrası doğrulama; üçüncü taraf adımları commit SHA’sına sabit',
+      'Çerezsiz ziyaret ölçümü (Supabase Edge Function): takma numara; yerel geliştirme ve yönetici oturumu sayılmıyor',
+      'Tehdit modeli, saldırı yüzeyi ve güven sınırları analiziyle güvenlik planı; panelden yönetilen giriş formu kapısı',
+    ],
+    tech: ['JavaScript', 'Supabase', 'PostgreSQL', 'GitHub Actions'],
+    image: '/projects/aaru.webp',
+    fit: 'cover',
+    pos: 'top',
+    gallery: [
+      { src: '/projects/aaru.webp', label: 'Giriş — “AARU dünyasına girin” perdesi' },
+      { src: '/projects/aaru-2.webp', label: 'Ana sayfa' },
+      { src: '/projects/aaru-3.webp', label: 'Yaşam — aktiviteler' },
+      { src: '/projects/aaru-4.webp', label: 'Mimari Atlas' },
+      { src: '/projects/aaru-5.webp', label: 'Yaşam — sofra seçkisi' },
+      { src: '/projects/aaru-6.webp', label: 'Projeler — filtreli portföy' },
+    ],
+    // Depo MOI organizasyonunda ve gizli: GitHub bağlantısı yok.
+    // HTTPS (443) şu an zaman aşımında; düzelince adres https'e çevrilecek.
+    liveUrl: 'http://aaruresidences.com',
+  },
+  {
     id: 'miniebys',
     tag: 'Offline-First',
     accent: 'indigo',
@@ -224,6 +257,21 @@ function StoreLink({ title, url }) {
       onClick={(e) => e.stopPropagation()}
     >
       <FaApple /> App Store <FiArrowUpRight className="proj-card__link-arrow" />
+    </a>
+  )
+}
+
+function SiteLink({ title, url }) {
+  return (
+    <a
+      className="proj-card__link"
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${title} — canlı site`}
+      onClick={(e) => e.stopPropagation()}
+    >
+      <FiExternalLink /> Canlı Site <FiArrowUpRight className="proj-card__link-arrow" />
     </a>
   )
 }
@@ -591,6 +639,8 @@ function Projects() {
                   </span>
                   {p.storeUrl ? (
                     <StoreLink title={p.title} url={p.storeUrl} />
+                  ) : p.liveUrl ? (
+                    <SiteLink title={p.title} url={p.liveUrl} />
                   ) : (
                     <GithubLink title={p.title} url={p.url} />
                   )}
