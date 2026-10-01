@@ -1,9 +1,20 @@
-import { FiBookOpen, FiAward, FiStar, FiBriefcase } from 'react-icons/fi'
+import { FiBookOpen, FiAward, FiStar, FiBriefcase, FiCode } from 'react-icons/fi'
 import Reveal from './Reveal'
 import GradientText from './GradientText'
 import './Experience.css'
 
 const items = [
+  {
+    Icon: FiCode,
+    kind: 'İş',
+    title: 'Yazılım Geliştirici · Kurucu Ekip',
+    org: 'MOI Games Bilişim A.Ş.',
+    date: 'Tem 2026 – Günümüz',
+    meta: '3 kişilik kurucu ekip · Müşteri projeleri',
+    desc: 'MOI’nin teknik tarafını yürütüyorum: GitHub organizasyonunu ve PR tabanlı çalışma düzenini kurdum; AARU Residences için devraldığım statik sitenin arkasına Supabase veritabanını, otomatik yayın hattını, güvenlik planını ve ziyaret ölçüm sistemini kurdum; Seydikemer Beton’un kurumsal sitesini yaptım. Şu anda bir gayrimenkul geliştiricisi için masaüstü karar destek sistemi geliştiriyorum.',
+    accent: 'indigo',
+    ongoing: true,
+  },
   {
     Icon: FiBriefcase,
     kind: 'Staj',
@@ -39,7 +50,7 @@ const items = [
     kind: 'Eğitim',
     title: 'Bilgisayar Mühendisliği',
     org: 'Pamukkale Üniversitesi',
-    date: 'Eyl 2022 – Tem 2026',
+    date: 'Eyl 2022 – Günümüz',
     meta: '4. Sınıf · GPA 3.23 / 4.00 · Denizli',
     desc: 'Çok ajanlı LLM sistemleri, makine öğrenmesi ve yazılım mühendisliği üzerine yoğunlaşarak lisans eğitimimi sürdürüyorum.',
     accent: 'indigo',
