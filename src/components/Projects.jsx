@@ -110,6 +110,7 @@ const projects = [
   },
   {
     id: 'smartvision',
+    wide: true,
     tag: 'Computer Vision',
     accent: 'teal',
     status: 'Tamamlandı',
@@ -136,6 +137,7 @@ const projects = [
   },
   {
     id: 'miniebys',
+    wide: true,
     tag: 'Offline-First',
     accent: 'indigo',
     status: 'Tamamlandı',
@@ -165,6 +167,7 @@ const projects = [
   },
   {
     id: 'makale',
+    wide: true,
     tag: 'Full-Stack',
     accent: 'violet',
     status: 'Tamamlandı',
@@ -188,6 +191,38 @@ const projects = [
       { src: '/projects/makale-4.webp', label: 'Giriş ekranı (tasarım taslağı)' },
     ],
     url: 'https://github.com/hsynsmd/makale_sitesi',
+  },
+  {
+    id: 'seydikemer',
+    wide: true,
+    tag: 'Müşteri Projesi',
+    accent: 'teal',
+    status: 'Canlıda',
+    title: 'Seydikemer Beton Web Sitesi',
+    summary:
+      'Muğla Seydikemer’deki hazır beton firmasının kurumsal sitesi — MOI’de geliştirdiğim müşteri projesi.',
+    detail:
+      'Sitenin amacı, firmanın hazır beton, mikser ve pompa hizmetlerini bölgedeki müşterilere tanıtmak ve aramalarda bulunur olmasını sağlamak: hizmet verilen mahalleler, beton sınıfları, fiyatı belirleyen etkenler ve sık sorulan sorular tek sayfada. Statik HTML, CSS ve JavaScript ile, build adımı olmadan yazıldı; 12 Ağustos 2026’dan beri yayında.',
+    highlights: [
+      '107 soruluk SSS: kategori düğmeleri, Türkçe harfe duyarsız arama ve soruya doğrudan bağlantı',
+      'Yerel SEO için yapısal veri (JSON-LD): LocalBusiness, hizmet kataloğu, 68 yer adıyla hizmet bölgesi ve 107 soruluk FAQPage',
+      'Arka plan videoları dar ekranda, veri tasarrufu modunda, 2G bağlantıda ve azaltılmış hareket tercihinde indirilmiyor; yerine fotoğraf gösteriliyor',
+      'ffmpeg tabanlı medya betikleri: görselleri CSS yuvalarına göre boyutlandırıyor, EXIF/GPS bilgisini siliyor, kaynak yetmezse büyütmüyor',
+      'Tüm metin ve görseller tek veri dosyasından yönetiliyor; sürüm numaralı adreslerle önbellek kırma',
+    ],
+    tech: ['HTML', 'CSS', 'JavaScript', 'JSON-LD'],
+    image: '/projects/seydikemer.webp',
+    fit: 'cover',
+    pos: 'top',
+    gallery: [
+      { src: '/projects/seydikemer.webp', label: 'Ana sayfa — Seydikemer Hazır Beton' },
+      { src: '/projects/seydikemer-2.webp', label: 'Beton çözümleri — hizmetler' },
+      { src: '/projects/seydikemer-3.webp', label: 'Projeler' },
+      { src: '/projects/seydikemer-4.webp', label: 'Hizmet bölgeleri' },
+      { src: '/projects/seydikemer-5.webp', label: 'SSS — kategori ve arama' },
+    ],
+    // Depo MOI organizasyonunda ve gizli: GitHub bağlantısı yok.
+    liveUrl: 'https://seydikemerbeton.com',
   },
 ]
 

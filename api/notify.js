@@ -37,6 +37,7 @@ const PROJECTS = new Set([
   'AARU Group Web Sitesi',
   'MiniEBYS',
   'Makale Yönetim Platformu',
+  'Seydikemer Beton Web Sitesi',
 ])
 const CHANNELS = new Set([
   'E-posta',
