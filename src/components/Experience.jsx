@@ -28,11 +28,11 @@ const items = [
   {
     Icon: FiStar,
     kind: 'Ödül',
-    title: 'Bitirme Tezi — Bölüm 2.’lik Ödülü',
+    title: 'Bitirme Projesi — Kategori İkinciliği',
     org: 'Pamukkale Üniversitesi · Bilgisayar Mühendisliği',
-    date: '2026',
-    meta: 'LLM tabanlı çok ajanlı market zinciri otomasyonu',
-    desc: 'Lisans bitirme tezim, bölüm çapında düzenlenen değerlendirmede ikincilik ödülüne layık görüldü.',
+    date: 'May 2026',
+    meta: '3 kişilik ekip · LLM tabanlı çok ajanlı market zinciri otomasyonu',
+    desc: 'Üç kişilik ekip olarak geliştirdiğimiz bitirme projemiz, Pamukkale Teknokent’teki bitirme projesi sunumlarında IoT, Otomasyon, Ulaşım ve Gömülü Sistemler kategorisinde ikincilik ödülü aldı.',
     accent: 'teal',
   },
   {

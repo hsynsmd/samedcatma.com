@@ -17,15 +17,15 @@ const projects = [
     status: 'Tamamlandı',
     title: 'Market Zinciri Otomasyonu',
     summary:
-      'LLM tabanlı çok ajanlı market zinciri otomasyon sistemi — uçtan uca akıllı tedarik akışı.',
+      'LLM tabanlı çok ajanlı market zinciri otomasyon sistemi — üç kişilik ekiple geliştirdiğimiz bitirme projesi.',
     detail:
-      'Sekiz uzman LLM ajanı ve bir orkestratör ile market tedarik zincirini uçtan uca otonomlaştıran hiyerarşik çok ajanlı sistem. Ajanlar; talep tahmini, stok, sipariş, mal kabul, raf, piyasa istihbaratı, kişiselleştirme ve raporlama süreçlerini yönetir.',
+      'Sekiz uzman LLM ajanı ve bir orkestratör ile market tedarik zincirini uçtan uca otonomlaştıran hiyerarşik çok ajanlı sistem. Ajanlar; talep tahmini, stok, sipariş, mal kabul, raf, piyasa istihbaratı, kişiselleştirme ve raporlama süreçlerini yönetir. Üç kişilik ekip olarak eşit ortaklıkla geliştirdik; proje, Pamukkale Teknokent’teki bitirme projesi sunumlarında kategori ikinciliği aldı.',
     highlights: [
       'LangChain + Gemini orchestrator ile chain & parallel execution',
       '10 FastAPI mikroservisi; agent-to-agent (httpx) çok adımlı iş akışları',
       '50+ özel tool ile ajanların dış sistem ve veri erişimi',
       'CatBoost tabanlı bağımsız ML servisi ile sayısal talep tahmini',
-      'Tavily RAG ile piyasa istihbaratı; RBAC ve çoklu format raporlama',
+      'Tavily web araması ile piyasa istihbaratı; RBAC ve çoklu format raporlama',
     ],
     metrics: [
       { value: '10', label: 'FastAPI mikroservisi' },
