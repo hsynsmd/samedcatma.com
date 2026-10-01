@@ -3,7 +3,7 @@ import {
   SiLangchain, SiGooglegemini, SiFastapi, SiFlask, SiNodedotjs, SiExpress, SiSqlalchemy,
   SiOpencv, SiScikitlearn, SiPandas, SiPostgresql, SiSupabase, SiSqlite, SiMysql,
   SiPython, SiTypescript, SiJavascript, SiC, SiReact, SiExpo, SiVite,
-  SiGit, SiPostman, SiPycharm, SiWebstorm, SiGooglecolab, SiJsonwebtokens,
+  SiGit, SiPostman, SiGooglecolab, SiJsonwebtokens,
   SiGithubactions, SiVercel, SiRailway, SiSentry,
 } from 'react-icons/si'
 import Reveal from './Reveal'
@@ -38,8 +38,6 @@ const BRAND = {
   'Vite': [SiVite, '#B16BF0'],
   'Git': [SiGit, '#F05133'],
   'Postman': [SiPostman, '#FF6C37'],
-  'PyCharm': [SiPycharm, '#34D399'],
-  'WebStorm': [SiWebstorm, '#38BDF8'],
   'Google Colab': [SiGooglecolab, '#F9AB00'],
   'GitHub Actions': [SiGithubactions, '#4F9CF9'],
   'Vercel': [SiVercel, '#E8EAF0'],
@@ -50,22 +48,22 @@ const BRAND = {
 
 const groups = [
   {
+    key: 'agent',
+    label: 'LLM & Ajan Sistemleri',
+    Icon: FiShare2,
+    items: ['LangChain', 'Google Gemini', 'Multi-Agent Architecture', 'Orchestrator Pattern', 'Tool Calling', 'Agent-to-Agent Communication', 'Streaming (SSE)'],
+  },
+  {
     key: 'ml',
     label: 'Yapay Zekâ & ML',
     Icon: FiCpu,
     items: ['Makine Öğrenmesi', 'Derin Öğrenme', 'NLP', 'Görüntü İşleme', 'OpenCV', 'YOLOv8', 'CatBoost', 'scikit-learn', 'pandas'],
   },
   {
-    key: 'agent',
-    label: 'LLM & Agent Sistemleri',
-    Icon: FiShare2,
-    items: ['LangChain', 'Google Gemini', 'Multi-Agent Architecture', 'Orchestrator Pattern', 'Tool Calling', 'Agent-to-Agent Communication', 'SSE Streaming'],
-  },
-  {
     key: 'backend',
     label: 'Backend & API',
     Icon: FiServer,
-    items: ['FastAPI', 'Flask', 'Node.js', 'Express.js', 'REST API', 'JWT', 'SQLAlchemy ORM', 'Mikroservis Mimarisi', 'Server-Sent Events'],
+    items: ['FastAPI', 'Flask', 'Node.js', 'Express.js', 'REST API', 'JWT', 'SQLAlchemy ORM', 'Mikroservis Mimarisi'],
   },
   {
     key: 'db',
@@ -89,7 +87,7 @@ const groups = [
     key: 'tools',
     label: 'Araçlar',
     Icon: FiTool,
-    items: ['Git', 'APScheduler', 'node-cron', 'Postman', 'PyCharm', 'WebStorm', 'Google Colab', 'MATLAB'],
+    items: ['Git', 'Zamanlanmış İşler', 'APScheduler', 'node-cron', 'Postman', 'Google Colab'],
   },
 ]
 
@@ -107,7 +105,7 @@ function Skills() {
           </GradientText>
         </Reveal>
         <Reveal as="p" className="skills__lead" delay={0.1}>
-          Ajan sistemlerinden veri katmanına — uçtan uca kullandığım teknolojiler.
+          Ajan sistemlerinden veri katmanına ve yayına — projelerimde kullandığım teknolojiler.
         </Reveal>
 
         <div className="skills__rows">
