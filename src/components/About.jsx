@@ -6,7 +6,7 @@ import './About.css'
 
 const principles = [
   { Icon: FiGitBranch, glow: '91, 108, 255', title: 'LLM & Ajan Sistemleri', description: 'Tool calling, agent orchestration ve çok adımlı iş akışları geliştiriyorum. Bitirme projemizde sekiz uzman LLM ajanını merkezi bir orkestratör altında koordine eden bir mimari kurduk.' },
-  { Icon: FiUploadCloud, glow: '91, 214, 176', title: 'Gerçek Kullanıma Çıkan Ürünler', description: "Gündem AI'ı App Store'a taşıdım; müşteri web projelerini production ortamına aldım. Deployment, CI/CD ve Sentry tabanlı hata izleme süreçlerinde deneyim kazandım." },
+  { Icon: FiUploadCloud, glow: '91, 214, 176', title: 'Gerçek Kullanıma Çıkan Ürünler', description: "Gündem AI'ı App Store'a taşıdım; müşteri web projelerini production ortamına aldım. Deployment, otomatik yayın hatları (CD) ve Sentry tabanlı hata izleme süreçlerinde deneyim kazandım." },
   { Icon: FiCheckCircle, glow: '242, 178, 92', title: 'Mühendislik Disiplini', description: "MiniEBYS'te 36 otomatik test, Radar'da 353 maddelik kabul sınaması ve AARU için tehdit modeliyle geliştirdiğim sistemleri test ve doğrulama süreçleriyle destekliyorum." },
   { Icon: FiCompass, glow: '139, 155, 255', title: 'Şu Anki Odağım', description: "RAG sistemlerinde retrieval ve evaluation, LangGraph ile durum bilgili ajan akışları, MCP entegrasyonları ve yerelde çalışan açık kaynak LLM/SLM'ler üzerine derinleşiyorum." },
 ]

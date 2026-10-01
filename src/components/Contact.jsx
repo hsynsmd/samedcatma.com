@@ -1,4 +1,4 @@
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiPhone, FiArrowRight, FiDownload } from 'react-icons/fi'
+import { FiMail, FiGithub, FiLinkedin, FiPhone, FiArrowRight, FiDownload } from 'react-icons/fi'
 import Strands from './Strands'
 import Reveal from './Reveal'
 import Magnetic from './Magnetic'
@@ -72,8 +72,6 @@ function Contact() {
             </Reveal>
 
             <Reveal as="div" className="contact__meta" delay={0.18}>
-              <span><FiMapPin /> İstanbul, Türkiye</span>
-              <span className="contact__sep">·</span>
               <a href="tel:+905539890306"
                  onClick={() => notifyOnce('notified-contact-Telefon', { type: 'contact', channel: 'Telefon' })}><FiPhone /> 0553 989 03 06</a>
             </Reveal>
@@ -96,7 +94,7 @@ function Contact() {
               avatarUrl={portraitImg}
               miniAvatarUrl={portraitImg}
               name="Hüseyin Samed Çatma"
-              title="AI Developer · LLM & Agentic Systems"
+              title="AI Engineer · LLM & Agentic Systems"
               showUserInfo={false}
               behindGlowColor="rgba(91, 108, 255, 0.35)"
               innerGradient="linear-gradient(145deg, rgba(91,108,255,0.18) 0%, rgba(242,178,92,0.16) 100%)"

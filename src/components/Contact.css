@@ -148,7 +148,6 @@
 .contact__meta svg { color: var(--accent-2); }
 .contact__meta a { transition: color 0.2s; }
 .contact__meta a:hover { color: var(--accent-2); }
-.contact__sep { opacity: 0.4; }
 
 .contact__cta {
   display: flex;

@@ -39,7 +39,7 @@ function Hero() {
           </h1>
           <p className="hero__role">
             <DecryptedText
-              text="AI Developer · LLM & Agentic Systems"
+              text="AI Engineer · LLM & Agentic Systems"
               animateOn="view"
               sequential
               revealDirection="start"

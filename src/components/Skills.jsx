@@ -75,7 +75,7 @@ const groups = [
     key: 'deploy',
     label: 'Yayın & Altyapı',
     Icon: FiCloud,
-    items: ['GitHub Actions', 'CI/CD', 'Vercel', 'Railway', 'Expo EAS', 'Sentry'],
+    items: ['GitHub Actions', 'Sürekli Dağıtım (CD)', 'Vercel', 'Railway', 'Expo EAS', 'Sentry'],
   },
   {
     key: 'lang',
