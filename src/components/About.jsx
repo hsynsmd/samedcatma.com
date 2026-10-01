@@ -6,7 +6,7 @@ import './About.css'
 
 const principles = [
   { Icon: FiShield, glow: '91, 108, 255', title: 'Yapay Zeka Odaklı Geliştirme', description: 'ML, deep learning, NLP ve computer vision alanlarında model ve uygulama odaklı çalışmalar yapıyorum.' },
-  { Icon: FiGitBranch, glow: '91, 214, 176', title: 'LLM & Agent Sistemleri', description: 'RAG, tool calling ve orchestrator pattern ile LLM tabanlı akıllı iş akışları geliştiriyorum.' },
+  { Icon: FiGitBranch, glow: '91, 214, 176', title: 'LLM & Agent Sistemleri', description: 'Tool calling, orchestrator pattern ve ajanlar arası iletişimle LLM tabanlı çok adımlı iş akışları geliştiriyorum.' },
   { Icon: FiLayers, glow: '242, 178, 92', title: 'AI Destekli Mobil Ürünler', description: "React Native ve Expo ile yapay zeka destekli mobil uygulamalar geliştiriyorum — Gündem AI App Store'da yayında." },
   { Icon: FiTarget, glow: '139, 155, 255', title: 'Uçtan Uca Sistem Kurma', description: 'Backend, API, veritabanı, web/mobil arayüz ve yapay zeka katmanlarını entegre ederek çalışan ürünler geliştiriyorum.' },
 ]
@@ -35,8 +35,8 @@ function About() {
         </Reveal>
 
         <Reveal as="p" className="about__sub about__sub--second" delay={0.2}>
-          Özellikle talep tahmini, karar destek sistemleri, RAG tabanlı uygulamalar, çok
-          ajanlı mimariler, AI destekli mobil uygulamalar ve akıllı otomasyon çözümleri
+          Özellikle talep tahmini, karar destek sistemleri, çok ajanlı mimariler, AI destekli
+          mobil uygulamalar ve akıllı otomasyon çözümleri
           geliştiriyorum. Amacım, yapay zekâyı yalnızca model seviyesinde bırakmadan; veri,
           backend, web/mobil arayüz ve otomasyon katmanlarıyla birlikte uçtan uca çalışan
           ürünlere dönüştürmek.

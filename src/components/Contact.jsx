@@ -96,7 +96,7 @@ function Contact() {
               avatarUrl={portraitImg}
               miniAvatarUrl={portraitImg}
               name="Hüseyin Samed Çatma"
-              title="AI & Intelligent Systems Developer"
+              title="AI Developer · LLM & Agentic Systems"
               showUserInfo={false}
               behindGlowColor="rgba(91, 108, 255, 0.35)"
               innerGradient="linear-gradient(145deg, rgba(91,108,255,0.18) 0%, rgba(242,178,92,0.16) 100%)"

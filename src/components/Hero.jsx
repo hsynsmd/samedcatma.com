@@ -32,14 +32,14 @@ function Hero() {
       <div className="hero__grid">
         <div className="hero__copy">
           <p className="hero__eyebrow">
-            <span className="hero__pulse" /> AI · ML/DL · NLP · LLM AGENTS
+            <span className="hero__pulse" /> LLM · AGENTIC AI · ML/DL · BACKEND
           </p>
           <h1 className="hero__name">
             <ShinyText text={NAME} speed={4} spread={80} color="#ECEEF6" shineColor="#7C8CFF" />
           </h1>
           <p className="hero__role">
             <DecryptedText
-              text="AI & Intelligent Systems Developer"
+              text="AI Developer · LLM & Agentic Systems"
               animateOn="view"
               sequential
               revealDirection="start"
@@ -78,7 +78,7 @@ function Hero() {
 
           <div className="hero__meta">
             <span className="hero__available">
-              <span className="hero__available-dot" /> Müsait
+              <span className="hero__available-dot" /> Fırsatlara açık
             </span>
             <div className="hero__socials">
               <a href="https://github.com/hsynsmd" target="_blank" rel="noopener noreferrer" aria-label="GitHub"

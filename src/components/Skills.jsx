@@ -1,9 +1,10 @@
-import { FiShare2, FiServer, FiCpu, FiDatabase, FiCode, FiTool } from 'react-icons/fi'
+import { FiShare2, FiServer, FiCpu, FiDatabase, FiCode, FiTool, FiCloud } from 'react-icons/fi'
 import {
   SiLangchain, SiGooglegemini, SiFastapi, SiFlask, SiNodedotjs, SiExpress, SiSqlalchemy,
   SiOpencv, SiScikitlearn, SiPandas, SiPostgresql, SiSupabase, SiSqlite, SiMysql,
   SiPython, SiTypescript, SiJavascript, SiC, SiReact, SiExpo, SiVite,
   SiGit, SiPostman, SiPycharm, SiWebstorm, SiGooglecolab, SiJsonwebtokens,
+  SiGithubactions, SiVercel, SiRailway, SiSentry,
 } from 'react-icons/si'
 import Reveal from './Reveal'
 import GradientText from './GradientText'
@@ -40,6 +41,11 @@ const BRAND = {
   'PyCharm': [SiPycharm, '#34D399'],
   'WebStorm': [SiWebstorm, '#38BDF8'],
   'Google Colab': [SiGooglecolab, '#F9AB00'],
+  'GitHub Actions': [SiGithubactions, '#4F9CF9'],
+  'Vercel': [SiVercel, '#E8EAF0'],
+  'Railway': [SiRailway, '#C9D1E0'],
+  'Expo EAS': [SiExpo, '#E8EAF0'],
+  'Sentry': [SiSentry, '#B4A7F5'],
 }
 
 const groups = [
@@ -53,7 +59,7 @@ const groups = [
     key: 'agent',
     label: 'LLM & Agent Sistemleri',
     Icon: FiShare2,
-    items: ['LangChain', 'Google Gemini', 'Multi-Agent Architecture', 'Orchestrator Pattern', 'Tool Calling', 'Agent-to-Agent Communication', 'RAG', 'SSE Streaming'],
+    items: ['LangChain', 'Google Gemini', 'Multi-Agent Architecture', 'Orchestrator Pattern', 'Tool Calling', 'Agent-to-Agent Communication', 'SSE Streaming'],
   },
   {
     key: 'backend',
@@ -65,7 +71,13 @@ const groups = [
     key: 'db',
     label: 'Veritabanı',
     Icon: FiDatabase,
-    items: ['PostgreSQL', 'Supabase', 'SQLite', 'MySQL', 'Full-Text Search', 'Row Level Security'],
+    items: ['PostgreSQL', 'Supabase', 'SQLite', 'MySQL', 'Full-Text Search', 'Row Level Security', 'Veritabanı Göçleri'],
+  },
+  {
+    key: 'deploy',
+    label: 'Yayın & Altyapı',
+    Icon: FiCloud,
+    items: ['GitHub Actions', 'CI/CD', 'Vercel', 'Railway', 'Expo EAS', 'Sentry'],
   },
   {
     key: 'lang',
