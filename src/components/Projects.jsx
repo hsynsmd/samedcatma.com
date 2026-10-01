@@ -23,19 +23,19 @@ const projects = [
     highlights: [
       'LangChain + Gemini orchestrator ile chain & parallel execution',
       '10 FastAPI mikroservisi; agent-to-agent (httpx) çok adımlı iş akışları',
-      '50+ özel tool ile ajanların dış sistem ve veri erişimi',
+      '69 özel tool ile ajanların dış sistem ve veri erişimi',
       'CatBoost tabanlı bağımsız ML servisi ile sayısal talep tahmini',
       'Tavily web araması ile piyasa istihbaratı; RBAC ve çoklu format raporlama',
     ],
     metrics: [
       { value: '10', label: 'FastAPI mikroservisi' },
       { value: '8', label: 'uzman LLM ajanı' },
-      { value: '50+', label: 'özel tool' },
+      { value: '69', label: 'özel tool' },
     ],
     tech: ['Python', 'LangChain', 'Gemini', 'FastAPI', 'CatBoost', 'Tavily', 'httpx'],
-    image: '/projects/market-zinciri.webp',
+    image: '/projects/market-zinciri-kapak.webp',
     fit: 'cover',
-    pos: 'top',
+    pos: 'left top',
     gallery: [
       { src: '/projects/market-zinciri.webp', label: 'Sohbet arayüzü' },
       { src: '/projects/market-zinciri-2.webp', label: 'Orkestrasyon paneli' },
@@ -58,11 +58,11 @@ const projects = [
     highlights: [
       'LLM SSE streaming "Bana Anlat" + Gemini ile otonom Türkçe özetleme',
       '9 AI kaynağından kazıma, node-cron pipeline, staging tekilleştirme',
-      'Express 23 endpoint REST API; JWT + ağırlıklı kişiselleştirme algoritması',
-      'React Native + Expo mobil; Supabase 9 migration, RLS, FTS',
+      'Express 27 endpoint REST API; JWT + ağırlıklı kişiselleştirme algoritması',
+      'React Native + Expo mobil; Supabase 19 migration, RLS, FTS',
     ],
     tech: ['Node.js', 'TypeScript', 'Gemini', 'PostgreSQL', 'React Native', 'Expo', 'Supabase'],
-    image: '/projects/gundem-ai.webp',
+    image: '/projects/gundem-ai-kapak.webp',
     fit: 'cover',
     pos: 'top',
     gallery: [
@@ -151,7 +151,7 @@ const projects = [
       'Node.js ile tek dosyaya paketleme; şablon bütünlüğü, mevzuat verisi ve çevrimdışı kuralları denetleyen 36 otomatik test',
     ],
     tech: ['JavaScript', 'Alpine.js', 'Fuse.js', 'docxtemplater', 'Node.js'],
-    image: '/projects/miniebys.webp',
+    image: '/projects/miniebys-kapak.webp',
     fit: 'cover',
     pos: 'top',
     gallery: [
@@ -178,7 +178,7 @@ const projects = [
       'JWT auth, password hashing, CORS; CRUD + yorum + kategori modülleri',
     ],
     tech: ['React', 'TypeScript', 'Flask', 'JWT', 'SQLAlchemy'],
-    image: '/projects/makale.webp',
+    image: '/projects/makale-kapak.webp',
     fit: 'cover',
     pos: 'top',
     gallery: [

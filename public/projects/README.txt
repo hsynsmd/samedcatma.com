@@ -43,6 +43,15 @@ Beklenen dosya adları (Projects.jsx içindeki `image`/`gallery` yollarıyla eş
   (01.10.2026'da headless Edge + CDP ile uygulamanın kendisinden çekildi; tümü örnek
    veri, saat örnek senaryoya (03.07.2026) sabitlendi; png yedekleri image-backup/)
 
+KART KAPAKLARI (01.10.2026) — kartta `image` bunlar, galeri değişmedi:
+  market-zinciri-kapak.webp -> orkestrasyon panelinin üstü (market-zinciri-2.png'den
+                               1628x620 kırpım; kart 21:8, mobilde sola hizalı)
+  gundem-ai-kapak.webp      -> üç telefon ekranı yan yana, 1600x900 (HTML şablon +
+                               headless Edge; dikey ekran yatay kutuya kırpılmasın diye)
+  miniebys-kapak.webp       -> miniebys.png sol üst 800x450 kırpım (yazı okunsun diye)
+  makale-kapak.webp         -> makale.png sol üst 800x450 kırpım
+  Neden: tam ekran görüntü ~340px karta 0,18 ölçekle iniyor, yazı ~2px oluyordu.
+
 Yeni görsel eklerken: WebP'ye çevir (ekran görüntüleri için cover, diyagramlar için
 contain), ~1920px genişliğe indir; sonra Projects.jsx'te ilgili `image`/`gallery`
 yolunun mevcut olduğundan emin ol. Görsel yoksa kart otomatik placeholder gösterir.
