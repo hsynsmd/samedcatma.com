@@ -34,6 +34,7 @@ const PROJECTS = new Set([
   'Market Zinciri Otomasyonu',
   'Gündem AI',
   'SmartVisionAssist',
+  'MiniEBYS',
   'Makale Yönetim Platformu',
 ])
 const CHANNELS = new Set([

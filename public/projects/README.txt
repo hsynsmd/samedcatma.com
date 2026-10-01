@@ -26,6 +26,13 @@ Beklenen dosya adları (Projects.jsx içindeki `image`/`gallery` yollarıyla eş
   makale-3.webp          -> Kontrol paneli — makale yönetimi    (modal galeri)
   makale-4.webp          -> Giriş ekranı                        (modal galeri)
   (arayüz tasarım mockup'ı — SVG'den üretildi; png yedekleri image-backup/)
+  miniebys.webp          -> MiniEBYS (kapak: İşlerim — imza, havale, termin)
+  miniebys-2.webp        -> Mevzuat Ara — çevrimdışı madde araması (modal galeri)
+  miniebys-3.webp        -> Belge önizlemesi — formdan resmî yazı  (modal galeri)
+  miniebys-4.webp        -> Gelen evrak — havale ve termin          (modal galeri)
+  miniebys-5.webp        -> Rapor — üretim ve iş yükü özeti         (modal galeri)
+  (01.10.2026'da headless Edge + CDP ile uygulamanın kendisinden çekildi; tümü örnek
+   veri, saat örnek senaryoya (03.07.2026) sabitlendi; png yedekleri image-backup/)
 
 Yeni görsel eklerken: WebP'ye çevir (ekran görüntüleri için cover, diyagramlar için
 contain), ~1920px genişliğe indir; sonra Projects.jsx'te ilgili `image`/`gallery`

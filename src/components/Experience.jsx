@@ -10,10 +10,9 @@ const items = [
     title: 'Zorunlu Yaz Stajı (Staj-1)',
     org: 'Denizli Orman Bölge Müdürlüğü',
     date: '29 Haz 2026 – 10 Ağu 2026',
-    meta: 'Yaz stajı · Süreç analizi & yazılım projesi · Denizli',
-    desc: 'Kurumun operasyonel süreçlerindeki sorunları inceleyip, çözüme yönelik bir yazılım projesi geliştiriyorum.',
+    meta: '30 iş günü · Yazılım stajı · Denizli',
+    desc: 'Birimleri gezip kurumdaki yoğun evrak ve imza trafiğini gözlemledim. Merkezî sistemlere ekleme yapılamadığı ve kurum ağına erişimim olmadığı için kendi bilgisayarımda, internetsiz ve kurulumsuz çalışan MiniEBYS’yi geliştirdim: resmî yazı üretimi, mevzuat araması ve havale/paraf/imza akışı tek dosyada. Ayrıntılar Projeler bölümünde.',
     accent: 'violet',
-    ongoing: true,
   },
   {
     Icon: FiStar,

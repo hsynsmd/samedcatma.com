@@ -100,6 +100,35 @@ const projects = [
     url: 'https://github.com/Goruntu-Isleme-Projesi/SmartVision-v2',
   },
   {
+    id: 'miniebys',
+    tag: 'Offline-First',
+    accent: 'indigo',
+    status: 'Tamamlandı',
+    title: 'MiniEBYS',
+    summary: 'İnternetsiz, kurulumsuz ve sunucusuz çalışan tek dosyalık evrak yönetim sistemi.',
+    detail:
+      'Stajda gördüğüm yoğun evrak ve imza trafiğinden yola çıkarak, elektronik belge yönetim sistemlerinin (EBYS) çekirdek işlevlerini küçük ölçekte kendim kurduğum proje: resmî yazılar formdan üretiliyor, dayanak mevzuat araçtan bulunup ekleniyor, gelen evrak havale, paraf ve imza adımlarıyla izleniyor. Kurumun merkezî sistemlerine ekleme yapılamadığı ve stajyer olarak kurum ağına erişimim olmadığı için bütün uygulama tek bir HTML dosyasına gömülü; veriler yalnız o bilgisayarın tarayıcısında tutuluyor. Kurumun kullandığı EBYS’nin yerine geçmiyor.',
+    highlights: [
+      'Tek HTML dosyası (~750 KB): kütüphaneler, şablonlar ve mevzuat dizini içine gömülü; kendiliğinden ağa hiç istek atmıyor',
+      '9 yazı türü için formdan düzenlenebilir Word, Excel ve PDF çıktısı; yeni tür kod yazmadan şablonla ekleniyor',
+      'Çevrimdışı mevzuat araması: Fuse.js bulanık eşleşme ve Türkçe karakter katlama, 2 mevzuat · 25 madde',
+      'Gelen evrak kaydı, havale, paraf/imza onay akışı, termin takibi ve rapor ekranı',
+      'Node.js ile tek dosyaya paketleme; şablon bütünlüğü, mevzuat verisi ve çevrimdışı kuralları denetleyen 36 otomatik test',
+    ],
+    tech: ['JavaScript', 'Alpine.js', 'Fuse.js', 'docxtemplater', 'Node.js'],
+    image: '/projects/miniebys.webp',
+    fit: 'cover',
+    pos: 'top',
+    gallery: [
+      { src: '/projects/miniebys.webp', label: 'İşlerim — imza, havale ve termin takibi' },
+      { src: '/projects/miniebys-2.webp', label: 'Mevzuat Ara — çevrimdışı madde araması' },
+      { src: '/projects/miniebys-3.webp', label: 'Belge önizlemesi — formdan resmî yazı' },
+      { src: '/projects/miniebys-4.webp', label: 'Gelen evrak — havale ve termin' },
+      { src: '/projects/miniebys-5.webp', label: 'Rapor — üretim ve iş yükü özeti' },
+    ],
+    // Herkese açık deposu olmadığı için `url` bilerek verilmedi; GitHub bağlantısı gizlenir.
+  },
+  {
     id: 'makale',
     tag: 'Full-Stack',
     accent: 'violet',
@@ -169,6 +198,7 @@ function TechRow({ items, max }) {
 }
 
 function GithubLink({ title, url }) {
+  if (!url) return null
   return (
     <a
       className="proj-card__link"
@@ -375,14 +405,16 @@ function ProjectModal({ project, onClose }) {
                 <FiExternalLink /> Siteyi Ziyaret Et
               </a>
             )}
-            <a
-              className="proj-modal__link"
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FiGithub /> GitHub <FiArrowUpRight className="proj-card__link-arrow" />
-            </a>
+            {project.url && (
+              <a
+                className="proj-modal__link"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiGithub /> GitHub <FiArrowUpRight className="proj-card__link-arrow" />
+              </a>
+            )}
           </div>
         </div>
       </div>
