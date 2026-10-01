@@ -1,0 +1,188 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez (modified)
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins - daha sıkı margin'lar tek sayfaya sığması için
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\topmargin}{-.9in}
+\addtolength{\textheight}{1.8in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+% --- BAŞLIK ---
+\begin{center}
+    \textbf{\Huge Hüseyin Samed ÇATMA} \\ \vspace{2pt}
+    \small \textit{AI Engineer $\cdot$ LLM \& Agentic Systems} \\ \vspace{2pt}
+    \small 0553 989 03 06 $|$ \href{mailto:hsynsamed@gmail.com}{\underline{hsynsamed@gmail.com}} $|$
+    \href{https://samedcatma.com}{\underline{samedcatma.com}} $|$
+    \href{https://linkedin.com/in/hsynsmd}{\underline{linkedin.com/in/hsynsmd}} $|$
+    \href{https://github.com/hsynsmd}{\underline{github.com/hsynsmd}}
+\end{center}
+
+%-----------PROFİL-----------------
+\section{Profil}
+\small{
+Makine öğrenmesi ve görüntü işleme temeliyle başlayıp LLM ve ajan sistemlerine odaklanan bir bilgisayar mühendisliği son sınıf öğrencisiyim. Yapay zekâ modellerini backend, veri ve deployment katmanlarıyla birleştirerek uçtan uca sistemler geliştiriyorum.
+}
+\vspace{2pt}
+
+%-----------DENEYİM-----------------
+\section{Deneyim}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {MOI Games Bilişim A.Ş.}{Temmuz 2026 -- Günümüz}
+      {Yazılım Geliştirici}{}
+      \resumeItemListStart
+        \resumeItem{\textbf{AARU Group:} 7 dilli kurumsal web platformunu Supabase/PostgreSQL (34 migration), yerinde içerik yönetimi ve çerezsiz ziyaret analitiğiyle geliştirdim; GitHub Actions ile otomatik yayın (CD) hattı kurdum, tehdit modelini hazırladım.}
+        \resumeItem{\textbf{Karar Destek Sistemi:} Gayrimenkul sektörü için masaüstü karar destek sistemi (Electron + Supabase) geliştiriyorum; kaynağı ve tarihi olmayan veriyi reddeden veri modeli, en az yetki ilkesine göre yapılandırılmış veritabanı rolü ve 567 senaryoluk kabul testleri kurdum.}
+        \resumeItem{GitHub organizasyonu ve PR tabanlı süreçle sürüm kontrolü ve kod inceleme akışını standartlaştırdım (134 PR).}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Denizli Orman Bölge Müdürlüğü}{Haziran 2026 -- Ağustos 2026}
+      {Yazılım Stajyeri}{Denizli, Türkiye}
+      \resumeItemListStart
+        \resumeItem{\textbf{MiniEBYS:} Kurum ağına ve kuruluma ihtiyaç duymadan tek HTML dosyası olarak çalışan evrak yönetim sistemi geliştirdim; 9 belge türünde resmî yazı üretimi, mevzuat araması, havale/paraf/imza akışları ve 36 otomatik test.}      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJELER-----------------
+\section{Projeler}
+    \resumeSubHeadingListStart
+
+      % --------- 1. PROJE: LLM Agent Market Otomasyonu ---------
+      \resumeProjectHeading
+          {\textbf{LLM Tabanlı Multi-Agent Market Zinciri Otomasyonu} $|$ \emph{Python, LangChain, Gemini, FastAPI, CatBoost}}{\textit{3 kişilik ekip}}
+          \resumeItemListStart
+            \resumeItem{8 uzman LLM ajanı, bir orchestrator ve ML servisinden oluşan 10 FastAPI mikroservisi geliştirdik; merkezi orchestrator ajanları ardışık ve paralel yürütme akışlarında koordine ediyor.}
+            \resumeItem{Ajanlara dağıtılmış toplam 69 özel tool ve ajanlar arası iletişimle talep tahmini $\rightarrow$ stok analizi $\rightarrow$ sipariş oluşturma gibi çok adımlı iş akışları kurduk; Tavily ile web tabanlı trend taraması ekledik.}
+            \resumeItem{CatBoost ile talep tahmini (8 mağaza, 400 ürün, 236 bin günlük satış kaydından oluşan sentetik veri; test kümesinde $R^2 = 0{,}85$); RBAC, çoklu format raporlama (PDF/Excel/Word/SAP XML/CSV) ve APScheduler ile zamanlanmış görevler.}
+          \resumeItemListEnd
+
+      % --------- 2. PROJE: Gündem AI ---------
+      \resumeProjectHeading
+          {\textbf{Gündem AI --- Kişiselleştirilmiş AI Haber Uygulaması} $|$ \emph{Node.js, TypeScript, Gemini API, PostgreSQL, React Native}}{}
+          \resumeItemListStart
+            \resumeItem{Server-Sent Events ile gerçek zamanlı LLM yanıt akışı sunan sohbet özelliğini ve 9 AI kaynağını (OpenAI, Anthropic, arXiv, Hugging Face vb.) 4 saatte bir tarayıp Gemini ile Türkçe özetleyen asenkron veri hattını geliştirdim.}
+            \resumeItem{Express ile 27 endpoint'li REST API, JWT kimlik doğrulama ve ilgi alanı, içerik tazeliği ve kaynak güvenilirliğini ağırlıklandıran kişiselleştirme; Supabase/PostgreSQL'de 19 migration, Row Level Security ve tam metin arama.}
+            \resumeItem{Uygulamayı App Store'da yayınladım; backend'i Railway üzerinde deploy ettim, Expo EAS ile build sürecini ve Sentry ile hata izleme altyapısını yapılandırdım.}
+          \resumeItemListEnd
+
+      % ---------- 3. PROJE: SmartVisionAssist ----------
+      \resumeProjectHeading
+          {\textbf{SmartVisionAssist} $|$ \emph{Python, OpenCV, YOLOv8, pyttsx3, pygame}}{}
+          \resumeItemListStart
+            \resumeItem{YOLOv8 nesne tespiti, 3$\times$3 konum ızgarası ve pinhole mesafe tahminiyle görme engelliler için gerçek zamanlı sesli yönlendirme geliştirdim. Thread/kuyruk mimarisiyle tehlike uyarıları video akışını bloklamadan çalışıyor.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------EĞİTİM-----------------
+\section{Eğitim}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Pamukkale Üniversitesi}{Eylül 2022 -- Günümüz}
+      {Bilgisayar Mühendisliği $|$ GPA: 3.24/4.00}{Denizli, Türkiye}
+  \resumeSubHeadingListEnd
+
+%-----------ÖDÜL & SERTİFİKALAR-----------------
+\section{Ödül \& Sertifikalar}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Bitirme Projesi Kategori İkinciliği} --- Pamukkale Teknokent}{Mayıs 2026}
+      \resumeProjectHeading
+          {\textbf{Yapay Zekâ Uzmanlık Programı, Temel Eğitim} --- Milli Teknoloji Akademisi (10 oturum)}{Ocak -- Şubat 2026}
+    \resumeSubHeadingListEnd
+
+%-----------TEKNİK YETENEKLER-----------------
+\section{Teknik Yetenekler}
+\small
+
+\textbf{LLM \& Ajan Sistemleri:} LangChain, Gemini API, Multi-Agent Systems, Tool Calling, Agent Orchestration \\
+
+\textbf{Yapay Zekâ \& ML:} Makine Öğrenmesi, Derin Öğrenme, Görüntü İşleme, OpenCV, YOLOv8, CatBoost, scikit-learn \\
+
+\textbf{Backend:} FastAPI, Flask, Node.js/Express, REST APIs, SSE, JWT, SQLAlchemy, APScheduler, node-cron \\
+
+\textbf{Veritabanı:} PostgreSQL, Supabase, SQLite, MySQL, Row Level Security, Full-Text Search \\
+
+\textbf{Altyapı \& Araçlar:} GitHub Actions, Vercel, Railway, Expo EAS, Sentry, Git \\
+
+\textbf{Programlama \& Web/Mobil:} Python, TypeScript, JavaScript, SQL, C $|$ React.js, React Native, Expo, Vite
+
+\end{document}
